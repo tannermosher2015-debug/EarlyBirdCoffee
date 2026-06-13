@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Early Bird Coffee — Vietnamese Coffee & Island Cold Foams · Kihei, Maui</title>
+<meta name="description" content="Early Bird Coffee is a locally owned truck on South Kihei Road serving premium Vietnamese coffee, ceremonial matcha, and island-inspired cold foams with fresh croffles and savory paninis. Open at 6am." />
+<meta name="theme-color" content="#271810" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="business.business" />
+<meta property="og:title" content="Early Bird Coffee — Sunrise in a Cup · Kihei, Maui" />
+<meta property="og:description" content="Premium Vietnamese coffee, ceremonial matcha, and island cold foams from a little truck on South Kihei Road. Coconut, ube, black sesame & salted caramel foams, croffles & paninis." />
+<!-- og:image placeholder — replace with a 1200x630 hero shot:
+     the white truck at golden hour on South Kihei Rd with a hand holding an
+     iced Vietnamese coffee topped with thick coconut cold foam in frame. -->
+<meta property="og:image" content="assets/early-bird-og.jpg" />
+<meta property="og:locality" content="Kihei, Hawaii" />
+
+<!-- Fonts: non-render-blocking load (print-media swap) with noscript fallback -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,500;1,9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,500;1,9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,500;1,9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" />
+</noscript>
+
+<!-- Flip no-js -> js immediately so reveal styles only hide content when JS is present -->
+<script>document.documentElement.classList.replace('no-js','js');</script>
+
+<style>
+  /* ============================================================
+     EARLY BIRD COFFEE — single-file site
+     Direction: warm-organic / editorial sunrise
+     Palette (5): background, surface, primary, accent, text
+     ============================================================ */
+
+  :root{
+    /* color system */
+    --bg:        #F2E7D5;  /* dawn cream — page background        */
+    --surface:   #FBF6EC;  /* warm card / raised surface          */
+    --primary:   #A84E2C;  /* burnt-sienna sunrise (AA on cream)  */
+    --accent:    #E2A23C;  /* honey gold — decorative / large     */
+    --text:      #271810;  /* espresso — body text & dark fills   */
+
+    /* tints derived from the five (no new hues) */
+    --line:      rgba(39,24,16,.14);
+    --line-soft: rgba(39,24,16,.08);
+    --text-mute: #5C4636;          /* espresso lightened, AA on cream */
+    --on-dark:   #F2E7D5;          /* cream text on espresso          */
+    --on-dark-mute: rgba(242,231,213,.66);
+
+    /* type */
+    --display: "Fraunces", "Hoefler Text", Georgia, serif;
+    --body:    "Hanken Grotesk", "Helvetica Neue", system-ui, sans-serif;
+
+    /* fluid type scale */
+    --fs-h1:   clamp(3rem, 9.5vw, 7.5rem);
+    --fs-h2:   clamp(2.1rem, 5vw, 3.6rem);
+    --fs-h3:   clamp(1.3rem, 2.4vw, 1.7rem);
+    --fs-lead: clamp(1.12rem, 1.9vw, 1.4rem);
+    --fs-body: clamp(1rem, 1.2vw, 1.08rem);
+    --fs-cap:  .8rem;
+
+    /* spacing / shape */
+    --section-y: clamp(3rem, 9vw, 7.5rem);
+    --gutter:    clamp(1.25rem, 5vw, 4rem);
+    --maxw:      1200px;
+    --radius:    18px;
+    --radius-lg: 30px;
+    --shadow:    0 24px 60px -28px rgba(39,24,16,.42);
+    --shadow-sm: 0 10px 30px -18px rgba(39,24,16,.5);
+    --ease:      cubic-bezier(.22,.61,.36,1);
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    font-size:var(--fs-body);
+    line-height:1.65;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  /* warm film-grain overlay for organic texture */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    z-index:1; pointer-events:none;
+    opacity:.05; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+
+  h1,h2,h3{ font-family:var(--display); font-weight:600; line-height:1.02;
+            letter-spacing:-.015em; margin:0; }
+  p{ margin:0; }
+
+  /* shared bits ------------------------------------------------ */
+  .wrap{ width:100%; max-width:var(--maxw); margin-inline:auto;
+         padding-inline:var(--gutter); }
+
+  .eyebrow{
+    font-family:var(--body);
+    font-size:var(--fs-cap);
+    font-weight:600;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--primary);
+    display:inline-flex; align-items:center; gap:.7em;
+  }
+  .eyebrow::before{
+    content:""; width:26px; height:2px; background:var(--accent);
+    display:inline-block;
+  }
+  .dark .eyebrow{ color:var(--accent); }
+  .dark .eyebrow::before{ background:var(--accent); }
+
+  .lead{ font-size:var(--fs-lead); color:var(--text-mute); line-height:1.55;
+         max-width:54ch; }
+  .dark .lead{ color:var(--on-dark-mute); }
+
+  /* buttons ---------------------------------------------------- */
+  .btn{
+    --bcol:var(--text); --btxt:var(--on-dark);
+    display:inline-flex; align-items:center; justify-content:center; gap:.6em;
+    min-height:52px; padding:.85em 1.6em;
+    background:var(--bcol); color:var(--btxt);
+    font-family:var(--body); font-weight:600; font-size:1rem;
+    letter-spacing:.01em; border:0; border-radius:999px;
+    cursor:pointer;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease),
+               background .35s var(--ease);
+  }
+  .btn .arr{ transition:transform .35s var(--ease); }
+  .btn:hover{ transform:translateY(-3px); box-shadow:var(--shadow-sm);
+              background:#34221a; }
+  .btn:hover .arr{ transform:translateX(4px); }
+  .btn--ghost{
+    --bcol:transparent; --btxt:var(--text);
+    border:1.5px solid var(--line); min-height:52px;
+  }
+  .btn--ghost:hover{ background:transparent; border-color:var(--primary);
+                     color:var(--primary); }
+  .dark .btn--ghost{ --btxt:var(--on-dark); border-color:rgba(242,231,213,.3); }
+  .dark .btn--ghost:hover{ color:var(--accent); border-color:var(--accent); }
+
+  /* focus visibility ------------------------------------------- */
+  a:focus-visible,button:focus-visible,.btn:focus-visible{
+    outline:3px solid var(--accent); outline-offset:3px;
+    border-radius:6px;
+  }
+
+  /* skip link */
+  .skip{ position:absolute; left:-9999px; top:0; z-index:200;
+         background:var(--text); color:var(--on-dark);
+         padding:.8em 1.2em; border-radius:0 0 10px 0; }
+  .skip:focus{ left:0; }
+
+  /* ===========================================================
+     HEADER / NAV
+     =========================================================== */
+  .site-header{
+    position:sticky; top:0; z-index:60;
+    background:rgba(242,231,213,.82);
+    backdrop-filter:blur(12px) saturate(140%);
+    -webkit-backdrop-filter:blur(12px) saturate(140%);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s var(--ease), background .3s var(--ease);
+  }
+  .site-header.scrolled{
+    border-bottom-color:var(--line-soft);
+    background:rgba(242,231,213,.94);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between;
+        gap:1rem; min-height:72px; }
+
+  .brand{ display:inline-flex; align-items:center; gap:.6rem;
+          font-family:var(--display); font-weight:800; font-size:1.32rem;
+          letter-spacing:-.02em; color:var(--text); }
+  .brand .mark{ width:34px; height:34px; flex:none; }
+  .brand b{ font-weight:800; }
+  .brand span{ font-style:italic; font-weight:500; }
+
+  .nav-links{ display:flex; align-items:center; gap:2rem;
+              list-style:none; margin:0; padding:0; }
+  .nav-links a{
+    font-weight:500; font-size:.97rem; color:var(--text-mute);
+    position:relative; padding:.3em 0;
+    transition:color .25s var(--ease);
+  }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:-2px;
+    width:100%; height:2px; background:var(--primary);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform .3s var(--ease);
+  }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-links a:hover::after{ transform:scaleX(1); }
+
+  .nav-cta{ display:inline-flex; align-items:center; gap:.9rem; }
+  .nav-cta .btn{ min-height:46px; padding:.6em 1.3em; }
+
+  /* hamburger */
+  .burger{
+    display:none;
+    width:48px; height:48px; flex:none;
+    background:transparent; border:1px solid var(--line);
+    border-radius:12px; cursor:pointer;
+    align-items:center; justify-content:center;
+  }
+  .burger span{ position:relative; width:20px; height:2px; background:var(--text);
+                display:block; transition:transform .3s var(--ease), opacity .2s; }
+  .burger span::before,.burger span::after{
+    content:""; position:absolute; left:0; width:20px; height:2px;
+    background:var(--text); transition:transform .3s var(--ease); }
+  .burger span::before{ top:-6px; } .burger span::after{ top:6px; }
+  .burger[aria-expanded="true"] span{ background:transparent; }
+  .burger[aria-expanded="true"] span::before{ transform:translateY(6px) rotate(45deg); }
+  .burger[aria-expanded="true"] span::after{ transform:translateY(-6px) rotate(-45deg); }
+
+  /* mobile panel */
+  .mobile-nav{
+    position:fixed; inset:72px 0 0 0; z-index:55;
+    background:var(--bg);
+    padding:2rem var(--gutter) 3rem;
+    display:flex; flex-direction:column; gap:.4rem;
+    transform:translateY(-12px); opacity:0; visibility:hidden;
+    transition:opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
+    border-top:1px solid var(--line-soft);
+  }
+  .mobile-nav.open{ opacity:1; visibility:visible; transform:translateY(0); }
+  .mobile-nav a{
+    font-family:var(--display); font-size:1.7rem; font-weight:500;
+    padding:.55em 0; min-height:48px; display:flex; align-items:center;
+    border-bottom:1px solid var(--line-soft); color:var(--text);
+  }
+  .mobile-nav a .num{ font-family:var(--body); font-size:.8rem;
+                      color:var(--primary); margin-right:1rem; font-weight:600; }
+  .mobile-nav .btn{ margin-top:1.4rem; width:100%; }
+
+  /* ===========================================================
+     HERO
+     =========================================================== */
+  .hero{ position:relative; overflow:hidden;
+         padding-top:clamp(2.5rem,7vw,5rem);
+         padding-bottom:clamp(3rem,8vw,6rem); }
+
+  /* layered dawn sky + rising sun (CSS-generated, no images) */
+  .hero-sky{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(120% 80% at 50% 118%,
+        rgba(226,162,60,.55) 0%,
+        rgba(168,78,44,.32) 34%,
+        rgba(242,231,213,0) 64%);
+  }
+  .hero-sun{
+    position:absolute; left:50%; bottom:-7%;
+    width:min(78vw,640px); aspect-ratio:1; translate:-50% 0;
+    z-index:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 50% 50%,
+        var(--accent) 0%,
+        var(--accent) 30%,
+        rgba(226,162,60,.42) 46%,
+        rgba(226,162,60,0) 70%);
+    filter:blur(.5px);
+    animation:rise 1.6s var(--ease) both;
+  }
+  .hero-rays{
+    position:absolute; left:50%; bottom:-7%; translate:-50% 0;
+    width:min(150vw,1300px); aspect-ratio:1; z-index:0; pointer-events:none;
+    background:repeating-conic-gradient(from 0deg at 50% 50%,
+        rgba(226,162,60,.12) 0deg 4deg,
+        rgba(226,162,60,0) 4deg 14deg);
+    -webkit-mask:radial-gradient(circle at 50% 50%, #000 18%, transparent 60%);
+            mask:radial-gradient(circle at 50% 50%, #000 18%, transparent 60%);
+    opacity:.7;
+    animation:spin 90s linear infinite, fadein 2s ease both;
+  }
+
+  .hero-inner{ position:relative; z-index:2; text-align:center;
+               padding-top:clamp(1rem,5vw,3rem); }
+  .hero .eyebrow{ justify-content:center; margin-bottom:1.4rem; }
+  .hero h1{
+    font-size:var(--fs-h1);
+    font-weight:600;
+    line-height:.92;
+    letter-spacing:-.03em;
+    margin:0 auto;
+    max-width:14ch;
+  }
+  .hero h1 .it{ font-style:italic; font-weight:500; color:var(--primary); }
+  .hero-sub{ margin:1.6rem auto 0; max-width:52ch; font-size:var(--fs-lead);
+             color:var(--text-mute); }
+  .hero-actions{ margin-top:2.2rem; display:flex; gap:1rem; flex-wrap:wrap;
+                 justify-content:center; }
+
+  /* stat strip below hero */
+  .hero-stats{
+    position:relative; z-index:2;
+    margin-top:clamp(3rem,7vw,5rem);
+    display:grid; grid-template-columns:repeat(3,1fr);
+    border:1px solid var(--line); border-radius:var(--radius);
+    background:var(--surface); overflow:hidden;
+  }
+  .hero-stats div{ padding:1.5rem 1.2rem; text-align:center;
+                   border-right:1px solid var(--line-soft); }
+  .hero-stats div:last-child{ border-right:0; }
+  .hero-stats .n{ font-family:var(--display); font-weight:600;
+                  font-size:clamp(1.7rem,3.4vw,2.4rem); line-height:1;
+                  color:var(--text); display:block; }
+  .hero-stats .n em{ color:var(--primary); font-style:normal; }
+  .hero-stats .l{ display:block; margin-top:.5rem; font-size:.8rem;
+                  letter-spacing:.14em; text-transform:uppercase;
+                  color:var(--text-mute); }
+
+  /* staggered entrance */
+  .stagger > *{ animation:rise .9s var(--ease) both; }
+  .stagger > *:nth-child(1){ animation-delay:.05s; }
+  .stagger > *:nth-child(2){ animation-delay:.15s; }
+  .stagger > *:nth-child(3){ animation-delay:.25s; }
+  .stagger > *:nth-child(4){ animation-delay:.35s; }
+
+  /* ===========================================================
+     SECTION SCAFFOLD
+     =========================================================== */
+  section{ position:relative; }
+  .band{ padding-block:var(--section-y); }
+  .section-head{ max-width:60ch; margin-bottom:clamp(2rem,4vw,3.2rem); }
+  .section-head h2{ font-size:var(--fs-h2); margin-top:1rem; }
+  .section-head .lead{ margin-top:1.1rem; }
+
+  /* STORY ----------------------------------------------------- */
+  .story{ display:grid; grid-template-columns:1.05fr .95fr;
+          gap:clamp(2rem,5vw,5rem); align-items:center; }
+  .story-copy h2{ font-size:var(--fs-h2); }
+  .story-copy p + p{ margin-top:1.1rem; }
+  .story-copy .lead{ margin-top:1.2rem; }
+  .story-sign{ margin-top:1.8rem; font-family:var(--display);
+               font-style:italic; font-size:1.35rem; color:var(--primary); }
+
+  /* CSS-built "polaroid" of the truck (image placeholder) */
+  .story-art{ position:relative; }
+  .truck-card{
+    position:relative; border-radius:var(--radius-lg);
+    background:var(--surface); border:1px solid var(--line);
+    box-shadow:var(--shadow); padding:14px;
+    rotate:-2.2deg;
+  }
+  .truck-photo{
+    aspect-ratio:4/5; border-radius:20px; overflow:hidden; position:relative;
+    /* PHOTO PLACEHOLDER:
+       vertical shot of the white Early Bird coffee truck parked on
+       South Kihei Rd, palms + blue sky behind, menu board visible.
+       Alt provided on the role="img" element below. */
+    background:
+      radial-gradient(90% 70% at 50% 18%, rgba(226,162,60,.5), transparent 60%),
+      linear-gradient(160deg,#3a2a1e 0%, #271810 60%, #1c120c 100%);
+  }
+  .truck-photo .sun-chip{
+    position:absolute; left:50%; top:30%; translate:-50% -50%;
+    width:120px; height:120px; border-radius:50%;
+    background:radial-gradient(circle,var(--accent),rgba(168,78,44,.7));
+    filter:blur(2px); opacity:.9;
+  }
+  .truck-photo .truck-body{
+    position:absolute; left:8%; right:8%; bottom:12%; height:42%;
+    background:linear-gradient(180deg,#fbf6ec,#e9ddc8);
+    border-radius:14px 14px 6px 6px;
+    box-shadow:0 18px 30px -16px rgba(0,0,0,.6);
+  }
+  .truck-photo .truck-body::before{
+    content:"EARLY BIRD"; position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--display); font-weight:800; letter-spacing:.04em;
+    color:var(--primary); font-size:clamp(.9rem,2.4vw,1.3rem);
+  }
+  .truck-photo .truck-wheel{ position:absolute; bottom:6%; width:34px; height:34px;
+    border-radius:50%; background:#1c120c; border:6px solid #3a2a1e; }
+  .truck-photo .truck-wheel.l{ left:20%; } .truck-photo .truck-wheel.r{ right:20%; }
+  .truck-tag{
+    position:absolute; right:-14px; bottom:26px; rotate:4deg;
+    background:var(--primary); color:var(--on-dark);
+    font-family:var(--body); font-weight:600; font-size:.78rem;
+    letter-spacing:.12em; text-transform:uppercase;
+    padding:.7em 1.1em; border-radius:999px; box-shadow:var(--shadow-sm);
+  }
+
+  /* MENU ------------------------------------------------------ */
+  .menu-grid{ display:grid; grid-template-columns:repeat(12,1fr);
+              gap:clamp(1rem,2vw,1.4rem); }
+  .m-card{
+    grid-column:span 4;
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:var(--radius); padding:1.6rem 1.5rem 1.5rem;
+    display:flex; flex-direction:column;
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease),
+               border-color .4s var(--ease);
+  }
+  .m-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-sm);
+                 border-color:rgba(168,78,44,.4); }
+  .m-card.feature{ grid-column:span 6; background:var(--text); color:var(--on-dark);
+                   border-color:transparent; }
+  .m-swatch{
+    width:56px; height:56px; border-radius:14px; margin-bottom:1.1rem; flex:none;
+    border:1px solid var(--line-soft);
+    /* small CSS-rendered "drink" cue per item; real menu photos go here */
+  }
+  .m-card.feature .m-swatch{ border-color:rgba(242,231,213,.18); }
+  .sw-viet{ background:
+      linear-gradient(180deg,#fbf6ec 0 38%, #6f4a32 38% 100%); }
+  .sw-coconut{ background:
+      linear-gradient(180deg,#fbf6ec 0 46%, #3a2a1e 46% 100%); }
+  .sw-matcha{ background:
+      radial-gradient(circle at 50% 30%,#fbf6ec 0 30%, transparent 31%),
+      linear-gradient(180deg,#9aa15f,#6f7a3c); }
+  .sw-tea{ background:linear-gradient(180deg,#e6c79a,#b98a52); }
+  .sw-croffle{ background:
+      repeating-linear-gradient(45deg,#e9c98f 0 7px,#cda35f 7px 14px); }
+  .sw-panini{ background:
+      repeating-linear-gradient(0deg,#caa066 0 8px,#a8763f 8px 12px); }
+
+  .m-kicker{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+             color:var(--primary); font-weight:600; }
+  .m-card.feature .m-kicker{ color:var(--accent); }
+  .m-card h3{ font-size:var(--fs-h3); margin:.45rem 0 .55rem; }
+  .m-card p{ color:var(--text-mute); font-size:.97rem; }
+  .m-card.feature p{ color:var(--on-dark-mute); }
+  .m-foot{ margin-top:auto; padding-top:1.1rem; font-size:.82rem;
+           letter-spacing:.04em; color:var(--text-mute);
+           display:flex; align-items:center; gap:.5rem; }
+  .m-card.feature .m-foot{ color:var(--on-dark-mute); }
+  .m-foot .dot{ width:6px; height:6px; border-radius:50%; background:var(--accent); }
+
+  .menu-note{ margin-top:1.6rem; font-size:.86rem; color:var(--text-mute);
+              text-align:center; }
+
+  /* COLD FOAM (dark section) ---------------------------------- */
+  .dark{ background:var(--text); color:var(--on-dark); }
+  .dark.band{ position:relative; overflow:hidden; }
+  .dark .glow{ position:absolute; z-index:0; inset:auto;
+               width:520px; height:520px; border-radius:50%;
+               right:-160px; top:-160px; pointer-events:none;
+               background:radial-gradient(circle,rgba(226,162,60,.22),transparent 65%); }
+  .dark .wrap{ position:relative; z-index:1; }
+  .dark .section-head h2{ color:var(--on-dark); }
+  .foam-grid{ display:grid; grid-template-columns:repeat(4,1fr);
+              gap:clamp(1rem,2vw,1.4rem); }
+  .foam{
+    border:1px solid rgba(242,231,213,.16); border-radius:var(--radius);
+    padding:1.5rem 1.35rem; background:rgba(242,231,213,.03);
+    transition:transform .4s var(--ease), background .4s var(--ease),
+               border-color .4s var(--ease);
+  }
+  .foam:hover{ transform:translateY(-6px); background:rgba(242,231,213,.06);
+               border-color:rgba(226,162,60,.5); }
+  .foam .cup{
+    width:100%; height:90px; border-radius:12px; margin-bottom:1.1rem;
+    position:relative; overflow:hidden; border:1px solid rgba(242,231,213,.1);
+  }
+  /* each foam swatch = a "cold foam over coffee" cross-section */
+  .cup .foam-layer{ position:absolute; left:0; right:0; top:0; height:42%; }
+  .cup .coffee-layer{ position:absolute; left:0; right:0; bottom:0; height:58%;
+                      background:linear-gradient(180deg,#4a3220,#2c1d12); }
+  .foam-coconut .foam-layer{ background:linear-gradient(180deg,#fffaf0,#efe3cf); }
+  .foam-ube     .foam-layer{ background:linear-gradient(180deg,#b89bd6,#8d6cb8); }
+  .foam-sesame  .foam-layer{ background:linear-gradient(180deg,#cfc2b2,#6f6457); }
+  .foam-sesame  .foam-layer::after{ content:""; position:absolute; inset:0;
+      background:radial-gradient(circle at 20% 40%,#241d15 1px,transparent 1.4px),
+                radial-gradient(circle at 60% 60%,#241d15 1px,transparent 1.4px),
+                radial-gradient(circle at 80% 30%,#241d15 1px,transparent 1.4px);
+      background-size:14px 14px; }
+  .foam-caramel .foam-layer{ background:linear-gradient(180deg,#f0c97f,#d89b46); }
+  .foam .num{ font-family:var(--display); font-size:.9rem; color:var(--accent);
+              font-weight:600; }
+  .foam h3{ font-size:1.2rem; color:var(--on-dark); margin:.3rem 0 .5rem; }
+  .foam p{ font-size:.9rem; color:var(--on-dark-mute); line-height:1.55; }
+
+  /* FIND US / HOURS ------------------------------------------- */
+  .find{ display:grid; grid-template-columns:1.1fr .9fr;
+         gap:clamp(2rem,4vw,4rem); align-items:stretch; }
+  .map-card{
+    position:relative; border-radius:var(--radius-lg); overflow:hidden;
+    border:1px solid var(--line); min-height:340px;
+    background:
+      linear-gradient(180deg, rgba(226,162,60,.16), transparent 40%),
+      repeating-linear-gradient(0deg, rgba(39,24,16,.05) 0 1px, transparent 1px 46px),
+      repeating-linear-gradient(90deg, rgba(39,24,16,.05) 0 1px, transparent 1px 46px),
+      var(--surface);
+    /* MAP PLACEHOLDER: embed a styled Google Map iframe centered on
+       1455 S Kihei Rd here in production. Decorative stylized map below. */
+  }
+  .map-card .road{ position:absolute; left:-10%; right:-10%; top:58%;
+      height:30px; background:var(--bg); rotate:-7deg;
+      border-block:2px dashed rgba(168,78,44,.5); }
+  .map-card .pin{
+    position:absolute; left:50%; top:46%; translate:-50% -100%;
+    width:34px; height:34px; border-radius:50% 50% 50% 0;
+    rotate:-45deg; background:var(--primary);
+    box-shadow:0 12px 24px -8px rgba(39,24,16,.6);
+  }
+  .map-card .pin::after{ content:""; position:absolute; inset:9px;
+      background:var(--surface); border-radius:50%; }
+  .map-card .here{ position:absolute; left:50%; top:46%; translate:-50% 14px;
+      font-family:var(--body); font-weight:600; font-size:.78rem;
+      letter-spacing:.1em; text-transform:uppercase; color:var(--primary);
+      background:var(--surface); padding:.35em .8em; border-radius:999px;
+      border:1px solid var(--line); white-space:nowrap; }
+  .find-info h2{ font-size:var(--fs-h2); margin-bottom:.4rem; }
+  .addr{ font-style:normal; margin-top:1.2rem; color:var(--text-mute);
+         line-height:1.8; }
+  .addr a{ color:var(--primary); font-weight:600; }
+  .addr a:hover{ text-decoration:underline; }
+  .hours{ margin-top:1.6rem; border-top:1px solid var(--line); }
+  .hours .row{ display:flex; justify-content:space-between; gap:1rem;
+               padding:.7rem 0; border-bottom:1px solid var(--line-soft);
+               font-size:.97rem; }
+  .hours .row.today{ font-weight:600; color:var(--text); }
+  .hours .row.today .day{ color:var(--primary); }
+  .hours .row.closed .time{ color:var(--text-mute); }
+  .hours .day{ color:var(--text-mute); }
+  .hours .row.today .day::after{ content:" · today"; font-size:.78rem;
+      letter-spacing:.08em; text-transform:uppercase; }
+  .hours-foot{ margin-top:.9rem; font-size:.82rem; color:var(--text-mute); }
+
+  /* REVIEWS --------------------------------------------------- */
+  .reviews .section-head{ display:flex; flex-wrap:wrap; align-items:flex-end;
+      justify-content:space-between; gap:1.2rem; max-width:none; }
+  .rate{ text-align:right; }
+  .rate .score{ font-family:var(--display); font-size:2.6rem; font-weight:600;
+                line-height:1; }
+  .rate .stars{ color:var(--accent); letter-spacing:.12em; font-size:1.1rem; }
+  .rate .src{ font-size:.78rem; color:var(--text-mute); letter-spacing:.08em;
+              text-transform:uppercase; }
+  .rev-grid{ display:grid; grid-template-columns:repeat(3,1fr);
+             gap:clamp(1rem,2vw,1.4rem); }
+  .quote{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:var(--radius); padding:1.7rem 1.6rem;
+    display:flex; flex-direction:column; gap:1rem;
+  }
+  .quote .mk{ font-family:var(--display); font-size:2.6rem; line-height:.5;
+              color:var(--accent); height:.5em; }
+  .quote p{ font-size:1.02rem; color:var(--text); line-height:1.55; }
+  .quote .by{ margin-top:auto; font-size:.82rem; color:var(--text-mute);
+              letter-spacing:.04em; }
+  .quote .by b{ color:var(--primary); font-weight:600; }
+
+  /* CTA BAND -------------------------------------------------- */
+  .cta-band{ text-align:center; }
+  .cta-band h2{ font-size:var(--fs-h2); max-width:18ch; margin:0 auto 1.2rem; }
+  .cta-band .it{ font-style:italic; color:var(--accent); }
+  .cta-band .lead{ margin:0 auto 2rem; }
+  .cta-band .hero-actions{ justify-content:center; display:flex; gap:1rem;
+                           flex-wrap:wrap; }
+
+  /* FOOTER ---------------------------------------------------- */
+  .site-footer{ background:var(--text); color:var(--on-dark);
+                padding-block:clamp(3rem,6vw,5rem) 2rem; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr;
+              gap:2.5rem; align-items:start; }
+  .foot-brand .brand{ color:var(--on-dark); font-size:1.5rem; }
+  .foot-brand p{ margin-top:1rem; color:var(--on-dark-mute); max-width:34ch;
+                 font-size:.95rem; }
+  .foot-col h4{ font-family:var(--body); font-size:.78rem; letter-spacing:.18em;
+                text-transform:uppercase; color:var(--accent);
+                margin:0 0 1rem; font-weight:600; }
+  .foot-col a, .foot-col p{ color:var(--on-dark-mute); font-size:.95rem;
+                            line-height:1.9; display:block; }
+  .foot-col a{ transition:color .25s var(--ease); }
+  .foot-col a:hover{ color:var(--accent); }
+  .foot-bottom{ margin-top:3rem; padding-top:1.4rem;
+                border-top:1px solid rgba(242,231,213,.14);
+                display:flex; flex-wrap:wrap; gap:.6rem 1.4rem;
+                justify-content:space-between; align-items:center;
+                color:var(--on-dark-mute); font-size:.82rem; }
+
+  /* ===========================================================
+     SCROLL REVEAL
+     =========================================================== */
+  .js .reveal{ opacity:0; transform:translateY(28px);
+               transition:opacity .8s var(--ease), transform .8s var(--ease); }
+  .js .reveal.in{ opacity:1; transform:none; }
+  .js .reveal-stagger > *{ opacity:0; transform:translateY(24px);
+               transition:opacity .7s var(--ease), transform .7s var(--ease); }
+  .js .reveal-stagger.in > *{ opacity:1; transform:none; }
+  .js .reveal-stagger.in > *:nth-child(2){ transition-delay:.08s; }
+  .js .reveal-stagger.in > *:nth-child(3){ transition-delay:.16s; }
+  .js .reveal-stagger.in > *:nth-child(4){ transition-delay:.24s; }
+  .js .reveal-stagger.in > *:nth-child(5){ transition-delay:.32s; }
+  .js .reveal-stagger.in > *:nth-child(6){ transition-delay:.40s; }
+
+  /* keyframes */
+  @keyframes rise{ from{ opacity:0; transform:translateY(26px); } to{ opacity:1; transform:none; } }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  @keyframes fadein{ from{ opacity:0; } to{ opacity:.7; } }
+
+  /* ===========================================================
+     RESPONSIVE
+     =========================================================== */
+  @media (max-width:960px){
+    .nav-links, .nav-cta .btn{ display:none; }
+    .burger{ display:inline-flex; }
+    .story{ grid-template-columns:1fr; }
+    .story-art{ max-width:420px; margin-inline:auto; }
+    .find{ grid-template-columns:1fr; }
+    .map-card{ min-height:280px; order:-1; }
+    .foam-grid{ grid-template-columns:repeat(2,1fr); }
+    .rev-grid{ grid-template-columns:1fr; }
+    .m-card, .m-card.feature{ grid-column:span 6; }
+    .foot-grid{ grid-template-columns:1fr 1fr; }
+    .foot-brand{ grid-column:1 / -1; }
+  }
+
+  @media (max-width:600px){
+    :root{ --section-y:clamp(2.6rem,12vw,3.5rem); }
+    .hero h1{ font-size:clamp(2.9rem,15vw,4.2rem); max-width:11ch; }
+    .hero-stats{ grid-template-columns:1fr; }
+    .hero-stats div{ border-right:0; border-bottom:1px solid var(--line-soft); }
+    .hero-stats div:last-child{ border-bottom:0; }
+    .hero-actions .btn{ width:100%; }
+    .menu-grid .m-card, .menu-grid .m-card.feature{ grid-column:1 / -1; }
+    .foam-grid{ grid-template-columns:1fr; }
+    .foot-grid{ grid-template-columns:1fr; gap:2rem; }
+    .reviews .section-head{ flex-direction:column; align-items:flex-start; }
+    .rate{ text-align:left; }
+  }
+
+  /* ===========================================================
+     REDUCED MOTION
+     =========================================================== */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation-duration:.001ms !important; animation-iteration-count:1 !important;
+      transition-duration:.001ms !important; scroll-behavior:auto !important;
+    }
+    .hero-rays{ animation:none; opacity:.5; }
+    .js .reveal, .js .reveal-stagger > *{ opacity:1 !important; transform:none !important; }
+    .stagger > *{ animation:none !important; }
+  }
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Early Bird Coffee — home">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <circle cx="20" cy="22" r="13" fill="none" stroke="#A84E2C" stroke-width="2.4"/>
+        <path d="M20 9 V3 M20 9 l-4 -4 M20 9 l4 -4" stroke="#E2A23C" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M13 23 q7 -9 14 0" fill="none" stroke="#E2A23C" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="20" cy="22" r="3" fill="#A84E2C"/>
+      </svg>
+      <span><b>Early Bird</b> <span>Coffee</span></span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#foams">Cold Foams</a></li>
+        <li><a href="#find">Find Us</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn" href="#find">Find the Truck <span class="arr" aria-hidden="true">→</span></a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#story"><span class="num">01</span> Our Story</a>
+  <a href="#menu"><span class="num">02</span> Menu</a>
+  <a href="#foams"><span class="num">03</span> Cold Foams</a>
+  <a href="#find"><span class="num">04</span> Find Us</a>
+  <a href="#reviews"><span class="num">05</span> Reviews</a>
+  <a class="btn" href="#find">Find the Truck <span class="arr" aria-hidden="true">→</span></a>
+</div>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-sky" aria-hidden="true"></div>
+    <div class="hero-rays" aria-hidden="true"></div>
+    <div class="hero-sun" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <div class="hero-inner stagger">
+        <p class="eyebrow">Kihei · Maui · Coffee Truck</p>
+        <h1 id="hero-title">Sunrise<br>in a <span class="it">cup.</span></h1>
+        <p class="hero-sub">
+          Premium Vietnamese coffee, ceremonial matcha, and island-inspired cold
+          foams — handcrafted from a little truck on South Kihei Road, open before
+          the beach crowd wakes up.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#menu">See the Menu <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="#find">Hours &amp; Location</a>
+        </div>
+      </div>
+
+      <div class="hero-stats reveal" aria-label="Highlights">
+        <div><span class="n"><em>4.9</em>★</span><span class="l">Yelp Rating</span></div>
+        <div><span class="n">6<span style="font-size:.6em">AM</span></span><span class="l">Doors Open</span></div>
+        <div><span class="n">100%</span><span class="l">Island-Inspired</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STORY ===================== -->
+  <section class="band" id="story" aria-labelledby="story-title">
+    <div class="wrap story">
+      <div class="story-copy reveal">
+        <p class="eyebrow">Locally owned · Made fresh</p>
+        <h2 id="story-title">A tiny truck with a big morning ritual.</h2>
+        <p class="lead">
+          Early Bird Coffee started with a simple idea: the best part of a Maui
+          morning shouldn't wait in a long line.
+        </p>
+        <p>
+          We pull premium Vietnamese coffee, whisk ceremonial-grade matcha, and
+          shake up milk teas — then crown every cup with cold foam infused with
+          flavors that taste like the islands. Coconut. Ube. Black sesame. Salted
+          caramel. Pair it with a fresh-pressed croffle or a savory panini, and
+          breakfast practically makes itself.
+        </p>
+        <p>
+          No corporate playbook, no shortcuts — just a window, a great cup, and a
+          line of regulars who know to get here early.
+        </p>
+        <p class="story-sign">— Get the worm. Then the cold foam.</p>
+      </div>
+
+      <div class="story-art reveal">
+        <div class="truck-card">
+          <!-- IMAGE: replace this CSS render with a real vertical photo of the truck -->
+          <div class="truck-photo" role="img"
+               aria-label="The white Early Bird Coffee truck parked on South Kihei Road at golden hour, palm trees and warm morning sky behind it.">
+            <span class="sun-chip" aria-hidden="true"></span>
+            <span class="truck-body" aria-hidden="true"></span>
+            <span class="truck-wheel l" aria-hidden="true"></span>
+            <span class="truck-wheel r" aria-hidden="true"></span>
+          </div>
+          <span class="truck-tag" aria-hidden="true">South Kihei Rd</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MENU ===================== -->
+  <section class="band" id="menu" aria-labelledby="menu-title" style="background:linear-gradient(180deg,rgba(251,246,236,.5),transparent);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The Menu</p>
+        <h2 id="menu-title">Built on Vietnamese coffee, finished island-style.</h2>
+        <p class="lead">A short, serious menu — every drink made to order, every
+          foam whipped in-house. Here's what the regulars reach for.</p>
+      </div>
+
+      <div class="menu-grid reveal-stagger">
+
+        <article class="m-card feature">
+          <span class="m-swatch sw-coconut" aria-hidden="true"></span>
+          <span class="m-kicker">Signature</span>
+          <h3>Coconut Cloud Vietnamese</h3>
+          <p>Our bold dark roast dripped over sweetened condensed milk, poured
+             over ice, and capped with a thick coconut cold foam. The one people
+             drive across the island for.</p>
+          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Hot or iced</span>
+        </article>
+
+        <article class="m-card feature">
+          <span class="m-swatch sw-viet" aria-hidden="true"></span>
+          <span class="m-kicker">Fan favorite</span>
+          <h3>Ube Coconut Coffee</h3>
+          <p>Vietnamese coffee swirled with purple-yam ube and creamy coconut —
+             tropical, a little nutty, reviewer-rated a flat ten out of ten.</p>
+          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Island special</span>
+        </article>
+
+        <article class="m-card">
+          <span class="m-swatch sw-matcha" aria-hidden="true"></span>
+          <span class="m-kicker">Whisked to order</span>
+          <h3>Lavender Matcha Latte</h3>
+          <p>Ceremonial-grade matcha with a whisper of lavender. Smooth enough to
+             convert the people who say they don't drink coffee.</p>
+          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Add lychee</span>
+        </article>
+
+        <article class="m-card">
+          <span class="m-swatch sw-tea" aria-hidden="true"></span>
+          <span class="m-kicker">Shaken fresh</span>
+          <h3>Island Milk Teas</h3>
+          <p>Silky milk teas finished with the same house cold foams. Pick your
+             flavor, pick your foam, and we'll build it.</p>
+          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Customizable</span>
+        </article>
+
+        <article class="m-card">
+          <span class="m-swatch sw-croffle" aria-hidden="true"></span>
+          <span class="m-kicker">Made fresh daily</span>
+          <h3>Ube Croffle</h3>
+          <p>A croissant pressed into a waffle until it's shatter-crisp, then
+             dressed with ube cream. The hidden gem hiding behind the coffee.</p>
+          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Best warm</span>
+        </article>
+
+        <article class="m-card">
+          <span class="m-swatch sw-panini" aria-hidden="true"></span>
+          <span class="m-kicker">If you're hungry</span>
+          <h3>Savory Paninis</h3>
+          <p>Pressed-to-order paninis for when coffee alone won't cut it. Warm,
+             crisp, and exactly what a beach day needs.</p>
+          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Daily selection</span>
+        </article>
+
+      </div>
+      <p class="menu-note">Menu rotates with the seasons and what's fresh — full
+        list &amp; prices are posted at the truck window.</p>
+    </div>
+  </section>
+
+  <!-- ===================== COLD FOAMS ===================== -->
+  <section class="band dark" id="foams" aria-labelledby="foam-title">
+    <span class="glow" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The Signature</p>
+        <h2 id="foam-title">Island cold foams, whipped in-house.</h2>
+        <p class="lead">The crown on every cup. Four house foams, each one tuned
+          to taste like somewhere you'd rather be. Add any of them to any drink.</p>
+      </div>
+
+      <div class="foam-grid reveal-stagger">
+        <article class="foam foam-coconut">
+          <div class="cup" aria-hidden="true"><span class="foam-layer"></span><span class="coffee-layer"></span></div>
+          <span class="num">01</span>
+          <h3>Coconut</h3>
+          <p>Toasty, tropical, and impossibly silky — the desert-island default
+             that started it all.</p>
+        </article>
+
+        <article class="foam foam-ube">
+          <div class="cup" aria-hidden="true"><span class="foam-layer"></span><span class="coffee-layer"></span></div>
+          <span class="num">02</span>
+          <h3>Ube</h3>
+          <p>Sweet purple yam with a vanilla-nutty edge. As pretty as it is
+             addictive over dark Vietnamese coffee.</p>
+        </article>
+
+        <article class="foam foam-sesame">
+          <div class="cup" aria-hidden="true"><span class="foam-layer"></span><span class="coffee-layer"></span></div>
+          <span class="num">03</span>
+          <h3>Black Sesame</h3>
+          <p>Deep, roasty, and grown-up. The foam for people who like their
+             sweetness with a little shadow.</p>
+        </article>
+
+        <article class="foam foam-caramel">
+          <div class="cup" aria-hidden="true"><span class="foam-layer"></span><span class="coffee-layer"></span></div>
+          <span class="num">04</span>
+          <h3>Salted Caramel</h3>
+          <p>Buttery caramel with a flake of sea salt. The crowd-pleaser that
+             never sends anyone home unhappy.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FIND US / HOURS ===================== -->
+  <section class="band" id="find" aria-labelledby="find-title">
+    <div class="wrap find">
+      <div class="map-card reveal" role="img"
+           aria-label="Stylized map showing Early Bird Coffee's location on South Kihei Road, Kihei.">
+        <span class="road" aria-hidden="true"></span>
+        <span class="pin" aria-hidden="true"></span>
+        <span class="here" aria-hidden="true">1455 S Kihei Rd</span>
+      </div>
+
+      <div class="find-info reveal">
+        <p class="eyebrow">Find the Truck</p>
+        <h2 id="find-title">Look for the little white truck.</h2>
+        <address class="addr">
+          1455 South Kihei Road<br>
+          Kihei, HI 96753<br>
+          <a href="tel:+18087953141">(808) 795-3141</a>
+        </address>
+
+        <div class="hours" aria-label="Hours of operation">
+          <div class="row"><span class="day">Monday</span><span class="time closed-label" data-day="1">Closed</span></div>
+          <div class="row"><span class="day">Tuesday</span><span class="time" data-day="2">6:00am – 3:00pm</span></div>
+          <div class="row"><span class="day">Wednesday</span><span class="time" data-day="3">6:00am – 3:00pm</span></div>
+          <div class="row"><span class="day">Thursday</span><span class="time" data-day="4">6:00am – 12:00pm</span></div>
+          <div class="row"><span class="day">Friday</span><span class="time" data-day="5">6:00am – 3:00pm</span></div>
+          <div class="row"><span class="day">Saturday</span><span class="time" data-day="6">8:00am – 3:00pm</span></div>
+          <div class="row"><span class="day">Sunday</span><span class="time" data-day="0">8:00am – 3:00pm</span></div>
+        </div>
+        <p class="hours-foot">Hours can shift with the season and the surf — we post
+          day-of updates on <a href="https://www.instagram.com/earlybirdcoffee.maui/" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;">Instagram</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REVIEWS ===================== -->
+  <section class="band reviews" id="reviews" aria-labelledby="rev-title"
+           style="background:linear-gradient(180deg,rgba(251,246,236,.5),transparent);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Word of Mouth</p>
+          <h2 id="rev-title">Worth getting up for.</h2>
+        </div>
+        <div class="rate">
+          <div class="score">4.9</div>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <div class="src">Yelp · Kihei</div>
+        </div>
+      </div>
+
+      <div class="rev-grid reveal-stagger">
+        <figure class="quote">
+          <span class="mk" aria-hidden="true">&ldquo;</span>
+          <blockquote><p>Ordered the ube coconut coffee — a solid 10 out of 10. SO delicious. I went back for a second.</p></blockquote>
+          <figcaption class="by"><b>Five-star review</b> · Yelp</figcaption>
+        </figure>
+
+        <figure class="quote">
+          <span class="mk" aria-hidden="true">&ldquo;</span>
+          <blockquote><p>The lavender matcha latte was supreme — one of the best I've ever had, and I don't even drink coffee.</p></blockquote>
+          <figcaption class="by"><b>Five-star review</b> · Yelp</figcaption>
+        </figure>
+
+        <figure class="quote">
+          <span class="mk" aria-hidden="true">&ldquo;</span>
+          <blockquote><p>The real hidden gem is the food. The paninis and croffles do not disappoint. Don't skip them.</p></blockquote>
+          <figcaption class="by"><b>Five-star review</b> · Yelp</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="band cta-band" aria-labelledby="cta-title">
+    <div class="wrap reveal">
+      <p class="eyebrow" style="justify-content:center;">Before the line does</p>
+      <h2 id="cta-title">Come find us <span class="it">early.</span></h2>
+      <p class="lead">We open at 6am and the good stuff goes fast. Roll up, grab a
+        Coconut Cloud, and start the day the island way.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#find">Get Directions <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="tel:+18087953141">Call (808) 795-3141</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top" aria-label="Early Bird Coffee — home">
+          <svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+            <circle cx="20" cy="22" r="13" fill="none" stroke="#E2A23C" stroke-width="2.4"/>
+            <path d="M20 9 V3 M20 9 l-4 -4 M20 9 l4 -4" stroke="#E2A23C" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M13 23 q7 -9 14 0" fill="none" stroke="#E2A23C" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="20" cy="22" r="3" fill="#E2A23C"/>
+          </svg>
+          <span><b>Early Bird</b> <span>Coffee</span></span>
+        </a>
+        <p>A locally owned coffee truck on South Kihei Road. Vietnamese coffee,
+           island cold foams, croffles &amp; paninis — made fresh, served early.</p>
+      </div>
+
+      <div class="foot-col">
+        <h4>Visit</h4>
+        <a href="https://maps.google.com/?q=1455+S+Kihei+Rd,+Kihei,+HI+96753" target="_blank" rel="noopener">1455 S Kihei Rd<br>Kihei, HI 96753</a>
+        <a href="tel:+18087953141">(808) 795-3141</a>
+      </div>
+
+      <div class="foot-col">
+        <h4>Hours</h4>
+        <p>Tue–Fri · from 6am<br>Sat–Sun · from 8am<br>Closed Mondays</p>
+        <a href="https://www.instagram.com/earlybirdcoffee.maui/" target="_blank" rel="noopener">@earlybirdcoffee.maui</a>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Early Bird Coffee · Kihei, Maui</span>
+      <span>Made for the early risers ☀</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---- header shadow on scroll ---- */
+  const header = document.querySelector('.site-header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  /* ---- mobile nav ---- */
+  const burger = document.getElementById('burger');
+  const mobileNav = document.getElementById('mobile-nav');
+  const setMenu = (open) => {
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileNav.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  burger.addEventListener('click', () => setMenu(!mobileNav.classList.contains('open')));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  /* ---- highlight today's hours row ---- */
+  (function(){
+    const today = new Date().getDay(); // 0=Sun
+    const cell = document.querySelector('.hours .time[data-day="'+today+'"]');
+    if (cell){
+      const row = cell.closest('.row');
+      row.classList.add('today');
+      if (cell.classList.contains('closed-label')) row.classList.add('closed');
+    }
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+
+  /* ---- scroll-triggered reveals (one per section) ---- */
+  const motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const targets = document.querySelectorAll('.reveal, .reveal-stagger');
+  if (motionOK && 'IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.16, rootMargin:'0px 0px -8% 0px' });
+    targets.forEach(t => io.observe(t));
+  } else {
+    targets.forEach(t => t.classList.add('in'));
+  }
+</script>
+</body>
+</html>
