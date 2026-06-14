@@ -199,7 +199,8 @@
   .brand{ display:inline-flex; align-items:center; gap:.6rem;
           font-family:var(--display); font-weight:800; font-size:1.32rem;
           letter-spacing:-.02em; color:var(--text); }
-  .brand .mark{ width:42px; height:42px; flex:none; object-fit:contain; }
+  .brand-logo{ height:clamp(46px,6vw,56px); width:auto; display:block;
+               object-fit:contain; }
   .brand b{ font-weight:800; }
   .brand span{ font-style:italic; font-weight:500; }
 
@@ -706,8 +707,8 @@
 <header class="site-header" id="top">
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Early Bird Coffee — home">
-      <img class="mark" src="assets/logo-mark.png" alt="" width="40" height="40" decoding="async" />
-      <span><b>Early Bird</b> <span>Coffee</span></span>
+      <img class="brand-logo" src="assets/logo.png" width="1024" height="909" decoding="async"
+           alt="Early Bird Coffee" />
     </a>
 
     <nav aria-label="Primary">
