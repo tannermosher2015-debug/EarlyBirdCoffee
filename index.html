@@ -8,18 +8,22 @@
 <meta name="description" content="Early Bird Coffee is a locally owned truck on South Kihei Road serving premium Vietnamese coffee, ceremonial matcha, and island-inspired cold foams with fresh croffles and savory paninis. Open at 6am." />
 <meta name="theme-color" content="#271810" />
 
-<!-- Favicon — sunrise mark, inline SVG (no extra request) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23271810'/%3E%3Ccircle cx='32' cy='37' r='13' fill='none' stroke='%23E2A23C' stroke-width='4'/%3E%3Ccircle cx='32' cy='37' r='4' fill='%23E2A23C'/%3E%3Cg stroke='%23E2A23C' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M32 18V10'/%3E%3Cpath d='M16 24l-5-5'/%3E%3Cpath d='M48 24l5-5'/%3E%3C/g%3E%3C/svg%3E" />
+<!-- Favicon — official Early Bird bird mark -->
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/logo-mark.png" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="business.business" />
 <meta property="og:title" content="Early Bird Coffee — Sunrise in a Cup · Kihei, Maui" />
 <meta property="og:description" content="Premium Vietnamese coffee, ceremonial matcha, and island cold foams from a little truck on South Kihei Road. Coconut, ube, black sesame & salted caramel foams, croffles & paninis." />
-<!-- og:image placeholder — replace with a 1200x630 hero shot:
-     the white truck at golden hour on South Kihei Rd with a hand holding an
-     iced Vietnamese coffee topped with thick coconut cold foam in frame. -->
-<meta property="og:image" content="assets/early-bird-og.jpg" />
+<meta property="og:url" content="https://earlybirdcoffeesample.netlify.app/" />
+<meta property="og:image" content="https://earlybirdcoffeesample.netlify.app/assets/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:locality" content="Kihei, Hawaii" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Early Bird Coffee — Sunrise in a Cup · Kihei, Maui" />
+<meta name="twitter:image" content="https://earlybirdcoffeesample.netlify.app/assets/og.jpg" />
 
 <!-- Fonts: non-render-blocking load (print-media swap) with noscript fallback -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,6 +58,7 @@
     --text-mute: #5C4636;          /* espresso lightened, AA on cream */
     --on-dark:   #F2E7D5;          /* cream text on espresso          */
     --on-dark-mute: rgba(242,231,213,.66);
+    --yelp:      #D32323;          /* Yelp brand red (review widget)  */
 
     /* type */
     --display: "Fraunces", "Hoefler Text", Georgia, serif;
@@ -194,7 +199,7 @@
   .brand{ display:inline-flex; align-items:center; gap:.6rem;
           font-family:var(--display); font-weight:800; font-size:1.32rem;
           letter-spacing:-.02em; color:var(--text); }
-  .brand .mark{ width:34px; height:34px; flex:none; }
+  .brand .mark{ width:42px; height:42px; flex:none; object-fit:contain; }
   .brand b{ font-weight:800; }
   .brand span{ font-style:italic; font-weight:500; }
 
@@ -382,36 +387,10 @@
     rotate:-2.2deg;
   }
   .truck-photo{
-    aspect-ratio:4/5; border-radius:20px; overflow:hidden; position:relative;
-    /* PHOTO PLACEHOLDER:
-       vertical shot of the white Early Bird coffee truck parked on
-       South Kihei Rd, palms + blue sky behind, menu board visible.
-       Alt provided on the role="img" element below. */
-    background:
-      radial-gradient(90% 70% at 50% 18%, rgba(226,162,60,.5), transparent 60%),
-      linear-gradient(160deg,#3a2a1e 0%, #271810 60%, #1c120c 100%);
+    aspect-ratio:3/4; border-radius:20px; overflow:hidden; position:relative;
+    background:var(--text);
   }
-  .truck-photo .sun-chip{
-    position:absolute; left:50%; top:30%; translate:-50% -50%;
-    width:120px; height:120px; border-radius:50%;
-    background:radial-gradient(circle,var(--accent),rgba(168,78,44,.7));
-    filter:blur(2px); opacity:.9;
-  }
-  .truck-photo .truck-body{
-    position:absolute; left:8%; right:8%; bottom:12%; height:42%;
-    background:linear-gradient(180deg,#fbf6ec,#e9ddc8);
-    border-radius:14px 14px 6px 6px;
-    box-shadow:0 18px 30px -16px rgba(0,0,0,.6);
-  }
-  .truck-photo .truck-body::before{
-    content:"EARLY BIRD"; position:absolute; inset:0;
-    display:flex; align-items:center; justify-content:center;
-    font-family:var(--display); font-weight:800; letter-spacing:.04em;
-    color:var(--primary); font-size:clamp(.9rem,2.4vw,1.3rem);
-  }
-  .truck-photo .truck-wheel{ position:absolute; bottom:6%; width:34px; height:34px;
-    border-radius:50%; background:#1c120c; border:6px solid #3a2a1e; }
-  .truck-photo .truck-wheel.l{ left:20%; } .truck-photo .truck-wheel.r{ right:20%; }
+  .truck-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
   .truck-tag{
     position:absolute; right:-14px; bottom:26px; rotate:4deg;
     background:var(--primary); color:var(--on-dark);
@@ -510,36 +489,35 @@
   .foam h3{ font-size:1.2rem; color:var(--on-dark); margin:.3rem 0 .5rem; }
   .foam p{ font-size:.9rem; color:var(--on-dark-mute); line-height:1.55; }
 
+  /* GALLERY --------------------------------------------------- */
+  .gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr);
+                 gap:clamp(.7rem,1.5vw,1.1rem); }
+  .gallery-grid figure{ margin:0; border-radius:var(--radius); overflow:hidden;
+                        border:1px solid var(--line); aspect-ratio:3/4;
+                        background:var(--surface); box-shadow:var(--shadow-sm); }
+  .gallery-grid img{ width:100%; height:100%; object-fit:cover; display:block;
+                     transition:transform .6s var(--ease); }
+  .gallery-grid figure:hover img{ transform:scale(1.06); }
+
   /* FIND US / HOURS ------------------------------------------- */
   .find{ display:grid; grid-template-columns:1.1fr .9fr;
          gap:clamp(2rem,4vw,4rem); align-items:stretch; }
   .map-card{
     position:relative; border-radius:var(--radius-lg); overflow:hidden;
-    border:1px solid var(--line); min-height:340px;
-    background:
-      linear-gradient(180deg, rgba(226,162,60,.16), transparent 40%),
-      repeating-linear-gradient(0deg, rgba(39,24,16,.05) 0 1px, transparent 1px 46px),
-      repeating-linear-gradient(90deg, rgba(39,24,16,.05) 0 1px, transparent 1px 46px),
-      var(--surface);
-    /* MAP PLACEHOLDER: embed a styled Google Map iframe centered on
-       1455 S Kihei Rd here in production. Decorative stylized map below. */
+    border:1px solid var(--line); min-height:340px; background:var(--surface);
+    box-shadow:var(--shadow-sm);
   }
-  .map-card .road{ position:absolute; left:-10%; right:-10%; top:58%;
-      height:30px; background:var(--bg); rotate:-7deg;
-      border-block:2px dashed rgba(168,78,44,.5); }
-  .map-card .pin{
-    position:absolute; left:50%; top:46%; translate:-50% -100%;
-    width:34px; height:34px; border-radius:50% 50% 50% 0;
-    rotate:-45deg; background:var(--primary);
-    box-shadow:0 12px 24px -8px rgba(39,24,16,.6);
+  .map-card iframe{ position:absolute; inset:0; width:100%; height:100%;
+                    border:0; display:block; }
+  .map-pin-tag{
+    position:absolute; left:14px; top:14px; z-index:2; pointer-events:none;
+    display:inline-flex; align-items:center; gap:.5em;
+    background:var(--surface); color:var(--text);
+    font-family:var(--body); font-weight:600; font-size:.78rem;
+    padding:.5em .85em; border-radius:999px; border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
   }
-  .map-card .pin::after{ content:""; position:absolute; inset:9px;
-      background:var(--surface); border-radius:50%; }
-  .map-card .here{ position:absolute; left:50%; top:46%; translate:-50% 14px;
-      font-family:var(--body); font-weight:600; font-size:.78rem;
-      letter-spacing:.1em; text-transform:uppercase; color:var(--primary);
-      background:var(--surface); padding:.35em .8em; border-radius:999px;
-      border:1px solid var(--line); white-space:nowrap; }
+  .map-pin-tag svg{ width:14px; height:14px; color:var(--primary); }
   .find-info h2{ font-size:var(--fs-h2); margin-bottom:.4rem; }
   .addr{ font-style:normal; margin-top:1.2rem; color:var(--text-mute);
          line-height:1.8; }
@@ -557,28 +535,102 @@
       letter-spacing:.08em; text-transform:uppercase; }
   .hours-foot{ margin-top:.9rem; font-size:.82rem; color:var(--text-mute); }
 
-  /* REVIEWS --------------------------------------------------- */
-  .reviews .section-head{ display:flex; flex-wrap:wrap; align-items:flex-end;
-      justify-content:space-between; gap:1.2rem; max-width:none; }
-  .rate{ text-align:right; }
-  .rate .score{ font-family:var(--display); font-size:2.6rem; font-weight:600;
-                line-height:1; }
-  .rate .stars{ color:var(--accent); letter-spacing:.12em; font-size:1.1rem; }
-  .rate .src{ font-size:.78rem; color:var(--text-mute); letter-spacing:.08em;
-              text-transform:uppercase; }
-  .rev-grid{ display:grid; grid-template-columns:repeat(3,1fr);
-             gap:clamp(1rem,2vw,1.4rem); }
-  .quote{
+  /* REVIEWS — Google widget ----------------------------------- */
+  .g-reviews{ display:grid; grid-template-columns:300px 1fr;
+              gap:clamp(1.4rem,3vw,2.4rem); align-items:start; }
+
+  .g-summary{
     background:var(--surface); border:1px solid var(--line);
-    border-radius:var(--radius); padding:1.7rem 1.6rem;
-    display:flex; flex-direction:column; gap:1rem;
+    border-radius:var(--radius-lg); padding:1.9rem 1.6rem; text-align:center;
+    position:sticky; top:96px;
   }
-  .quote .mk{ font-family:var(--display); font-size:2.6rem; line-height:.5;
-              color:var(--accent); height:.5em; }
-  .quote p{ font-size:1.02rem; color:var(--text); line-height:1.55; }
-  .quote .by{ margin-top:auto; font-size:.82rem; color:var(--text-mute);
-              letter-spacing:.04em; }
-  .quote .by b{ color:var(--primary); font-weight:600; }
+  .g-logo svg{ width:78px; height:auto; display:inline-block; }
+  .g-score{ font-family:var(--display); font-weight:600; font-size:3.4rem;
+            line-height:1; margin:.7rem 0 .25rem; color:var(--text); }
+  .g-stars{ color:var(--accent); letter-spacing:.1em; font-size:1.32rem; }
+  .g-count{ margin:.75rem 0 1.5rem; font-size:.92rem; color:var(--text-mute); }
+  .g-count b{ color:var(--text); font-weight:600; }
+  .g-summary .btn{ width:100%; }
+  .g-write{ display:inline-block; margin-top:.95rem; font-size:.86rem;
+            font-weight:600; color:var(--primary); }
+  .g-write:hover{ text-decoration:underline; }
+
+  .g-cards{ display:grid; grid-template-columns:repeat(2,1fr);
+            gap:clamp(1rem,2vw,1.3rem); }
+  .g-card{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:var(--radius); padding:1.4rem 1.4rem 1.5rem;
+    display:flex; flex-direction:column; gap:.9rem;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease),
+               border-color .35s var(--ease);
+  }
+  .g-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-sm);
+                 border-color:rgba(168,78,44,.35); }
+  .g-card header{ display:flex; align-items:center; gap:.75rem; }
+  .g-avatar{ width:42px; height:42px; flex:none; border-radius:50%;
+             display:flex; align-items:center; justify-content:center;
+             font-family:var(--display); font-weight:600; font-size:1.15rem;
+             color:var(--on-dark); background:var(--primary); }
+  .g-card:nth-child(4n+2) .g-avatar{ background:var(--text); }
+  .g-card:nth-child(4n+3) .g-avatar{ background:#7a5a44; }
+  .g-id{ flex:1; min-width:0; }
+  .g-name{ display:block; font-weight:600; font-size:.97rem; color:var(--text);
+           line-height:1.2; }
+  .g-meta{ font-size:.78rem; color:var(--text-mute); }
+  .g-gmark{ width:20px; height:20px; flex:none; }
+  .g-cstars{ color:var(--accent); letter-spacing:.08em; font-size:1rem; }
+  .g-card blockquote{ margin:0; }
+  .g-card p{ font-size:.96rem; color:var(--text); line-height:1.55; }
+
+  /* review source toggle (Google / Yelp) */
+  .rev-tabs{ display:inline-flex; gap:.35rem; padding:.35rem; margin-bottom:1.8rem;
+             background:var(--surface); border:1px solid var(--line); border-radius:999px; }
+  .rev-tab{ display:inline-flex; align-items:center; gap:.5em; min-height:44px;
+            padding:.5em 1.2em; border:0; background:transparent; cursor:pointer;
+            font-family:var(--body); font-weight:600; font-size:.92rem;
+            color:var(--text-mute); border-radius:999px;
+            transition:background .25s var(--ease), color .25s var(--ease); }
+  .rev-tab:hover{ color:var(--text); }
+  .rev-tab[aria-selected="true"]{ background:var(--text); color:var(--on-dark); }
+  .rev-tab svg{ width:17px; height:17px; }
+  .rev-tab .y-star{ color:var(--yelp); font-size:1.05rem; line-height:1; }
+  .rev-tab[aria-selected="true"] .y-star{ color:#ff6f6f; }
+  .rev-panel[hidden]{ display:none; }
+
+  /* Yelp panel — reuses .g-* layout with red brand accents */
+  .yelp-word{ font-family:var(--display); font-weight:800; font-size:1.9rem;
+              letter-spacing:-.02em; color:var(--yelp); display:inline-block; }
+  .y .g-stars, .y .g-cstars{ color:var(--yelp); }
+  .y .g-write{ color:var(--yelp); }
+  .y-card{ gap:.85rem; }
+  .y-by{ margin-top:auto; font-size:.8rem; color:var(--text-mute); letter-spacing:.03em; }
+  .y-by b{ color:var(--yelp); font-weight:600; }
+  .y .g-avatar{ background:var(--yelp); }
+  .yelp-mini{ font-family:var(--display); font-weight:800; font-size:.92rem;
+              color:var(--yelp); letter-spacing:-.01em; flex:none; }
+
+  /* scrollable review row */
+  .g-rowwrap{ position:relative; min-width:0; }
+  .g-row{ display:grid; grid-auto-flow:column; grid-auto-columns:minmax(270px,290px);
+          gap:clamp(1rem,2vw,1.3rem); overflow-x:auto; overscroll-behavior-x:contain;
+          scroll-snap-type:x mandatory; scroll-padding:4px;
+          padding:4px 4px 1.1rem; margin:-4px;
+          scrollbar-width:thin; scrollbar-color:var(--line) transparent; }
+  .g-row:focus-visible{ outline:3px solid var(--accent); outline-offset:4px; border-radius:var(--radius); }
+  .g-row::-webkit-scrollbar{ height:8px; }
+  .g-row::-webkit-scrollbar-thumb{ background:var(--line); border-radius:99px; }
+  .g-row::-webkit-scrollbar-thumb:hover{ background:rgba(39,24,16,.28); }
+  .g-row > .g-card{ scroll-snap-align:start; }
+  .g-rownav{ display:flex; gap:.5rem; justify-content:flex-end; margin-top:.5rem; }
+  .g-arrow{ width:44px; height:44px; border-radius:50%; cursor:pointer; flex:none;
+            border:1px solid var(--line); background:var(--surface); color:var(--text);
+            display:inline-flex; align-items:center; justify-content:center;
+            font-size:1.3rem; line-height:1;
+            transition:background .25s var(--ease), border-color .25s var(--ease),
+                       color .25s var(--ease), opacity .25s var(--ease); }
+  .g-arrow:hover{ background:var(--bg); border-color:var(--primary); color:var(--primary); }
+  .g-arrow[disabled]{ opacity:.32; cursor:default; }
+  .g-arrow[disabled]:hover{ background:var(--surface); border-color:var(--line); color:var(--text); }
 
   /* CTA BAND -------------------------------------------------- */
   .cta-band{ text-align:center; }
@@ -594,6 +646,10 @@
   .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr;
               gap:2.5rem; align-items:start; }
   .foot-brand .brand{ color:var(--on-dark); font-size:1.5rem; }
+  .foot-logo{ display:inline-block; background:var(--surface);
+              border-radius:var(--radius-lg); padding:1.1rem 1.35rem; line-height:0;
+              box-shadow:var(--shadow-sm); }
+  .foot-logo img{ width:200px; max-width:100%; height:auto; display:block; }
   .foot-brand p{ margin-top:1rem; color:var(--on-dark-mute); max-width:34ch;
                  font-size:.95rem; }
   .foot-col h4{ font-family:var(--body); font-size:.78rem; letter-spacing:.18em;
@@ -648,7 +704,8 @@
     .find{ grid-template-columns:1fr; }
     .map-card{ min-height:280px; order:-1; }
     .foam-grid{ grid-template-columns:repeat(2,1fr); }
-    .rev-grid{ grid-template-columns:1fr; }
+    .g-reviews{ grid-template-columns:1fr; }
+    .g-summary{ position:static; }
     .m-card, .m-card.feature{ grid-column:span 6; }
     .foot-grid{ grid-template-columns:1fr 1fr; }
     .foot-brand{ grid-column:1 / -1; }
@@ -664,8 +721,10 @@
     .menu-grid .m-card, .menu-grid .m-card.feature{ grid-column:1 / -1; }
     .foam-grid{ grid-template-columns:1fr; }
     .foot-grid{ grid-template-columns:1fr; gap:2rem; }
-    .reviews .section-head{ flex-direction:column; align-items:flex-start; }
-    .rate{ text-align:left; }
+    .g-cards{ grid-template-columns:1fr; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+    .g-rownav{ display:none; }
+    .g-row{ grid-auto-columns:minmax(82%,86%); }
   }
 
   /* ===========================================================
@@ -689,12 +748,7 @@
 <header class="site-header" id="top">
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Early Bird Coffee — home">
-      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-        <circle cx="20" cy="22" r="13" fill="none" stroke="#A84E2C" stroke-width="2.4"/>
-        <path d="M20 9 V3 M20 9 l-4 -4 M20 9 l4 -4" stroke="#E2A23C" stroke-width="2.4" stroke-linecap="round"/>
-        <path d="M13 23 q7 -9 14 0" fill="none" stroke="#E2A23C" stroke-width="2.4" stroke-linecap="round"/>
-        <circle cx="20" cy="22" r="3" fill="#A84E2C"/>
-      </svg>
+      <img class="mark" src="assets/logo-mark.png" alt="" width="40" height="40" decoding="async" />
       <span><b>Early Bird</b> <span>Coffee</span></span>
     </a>
 
@@ -703,6 +757,7 @@
         <li><a href="#story">Our Story</a></li>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#foams">Cold Foams</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#find">Find Us</a></li>
         <li><a href="#reviews">Reviews</a></li>
       </ul>
@@ -722,8 +777,9 @@
   <a href="#story"><span class="num">01</span> Our Story</a>
   <a href="#menu"><span class="num">02</span> Menu</a>
   <a href="#foams"><span class="num">03</span> Cold Foams</a>
-  <a href="#find"><span class="num">04</span> Find Us</a>
-  <a href="#reviews"><span class="num">05</span> Reviews</a>
+  <a href="#gallery"><span class="num">04</span> Gallery</a>
+  <a href="#find"><span class="num">05</span> Find Us</a>
+  <a href="#reviews"><span class="num">06</span> Reviews</a>
   <a class="btn" href="#find">Find the Truck <span class="arr" aria-hidden="true">→</span></a>
 </div>
 
@@ -797,13 +853,9 @@
 
       <div class="story-art reveal">
         <div class="truck-card">
-          <!-- IMAGE: replace this CSS render with a real vertical photo of the truck -->
-          <div class="truck-photo" role="img"
-               aria-label="The white Early Bird Coffee truck parked on South Kihei Road at golden hour, palm trees and warm morning sky behind it.">
-            <span class="sun-chip" aria-hidden="true"></span>
-            <span class="truck-body" aria-hidden="true"></span>
-            <span class="truck-wheel l" aria-hidden="true"></span>
-            <span class="truck-wheel r" aria-hidden="true"></span>
+          <div class="truck-photo">
+            <img src="assets/truck.jpg" width="750" height="1000" loading="lazy" decoding="async"
+                 alt="The Early Bird Coffee shack on South Kihei Road — a hand-painted bird sign under a palm tree, with customers ordering at the window." />
           </div>
           <span class="truck-tag" aria-hidden="true">South Kihei Rd</span>
         </div>
@@ -931,14 +983,40 @@
     </div>
   </section>
 
+  <!-- ===================== GALLERY ===================== -->
+  <section class="band gallery" id="gallery" aria-labelledby="gallery-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">From the window</p>
+        <h2 id="gallery-title">Take a pic, then mix.</h2>
+        <p class="lead">Half the fun is how they look before you stir — layered island lattes
+          and fresh croffles, straight from the truck on South Kihei Road.</p>
+      </div>
+      <div class="gallery-grid reveal-stagger">
+        <figure><img src="assets/drinks-1.jpg" width="750" height="1000" loading="lazy" decoding="async"
+          alt="Iced ube and matcha lattes layered over coffee in Early Bird logo cups, beside the take-a-pic-then-mix sign." /></figure>
+        <figure><img src="assets/croffle.jpg" width="750" height="1000" loading="lazy" decoding="async"
+          alt="A croffle on a stick drizzled with chocolate and dusted with cookie crumble and powdered sugar." /></figure>
+        <figure><img src="assets/drinks-2.jpg" width="750" height="1000" loading="lazy" decoding="async"
+          alt="An iced coffee with cold foam beside an iced matcha, both in Early Bird logo cups." /></figure>
+        <figure><img src="assets/drinks-3.jpg" width="750" height="1000" loading="lazy" decoding="async"
+          alt="Layered matcha and ube lattes catching the morning sun on the truck windowsill." /></figure>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== FIND US / HOURS ===================== -->
   <section class="band" id="find" aria-labelledby="find-title">
     <div class="wrap find">
-      <div class="map-card reveal" role="img"
-           aria-label="Stylized map showing Early Bird Coffee's location on South Kihei Road, Kihei.">
-        <span class="road" aria-hidden="true"></span>
-        <span class="pin" aria-hidden="true"></span>
-        <span class="here" aria-hidden="true">1455 S Kihei Rd</span>
+      <div class="map-card reveal">
+        <span class="map-pin-tag" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          1455 S Kihei Rd
+        </span>
+        <iframe
+          title="Map of Early Bird Coffee at 1455 South Kihei Road, Kihei, Hawaii"
+          src="https://www.google.com/maps?q=Early%20Bird%20Coffee%2C%201455%20S%20Kihei%20Rd%2C%20Kihei%2C%20HI%2096753&z=15&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       </div>
 
       <div class="find-info reveal">
@@ -965,41 +1043,185 @@
     </div>
   </section>
 
-  <!-- ===================== REVIEWS ===================== -->
+  <!-- ===================== REVIEWS (Google widget) ===================== -->
+  <!--
+    DATA TO CONFIRM before pushing live:
+      • Rating + review count below (currently placeholders)
+      • The four .g-card reviews below are PLACEHOLDERS — replace name / time /
+        text with real Google reviews. Keep them genuine; don't invent.
+    Deep-link target is the real Google listing (CID 16026991967248057547):
+      https://www.google.com/maps?cid=16026991967248057547  (has "Write a review")
+  -->
   <section class="band reviews" id="reviews" aria-labelledby="rev-title"
            style="background:linear-gradient(180deg,rgba(251,246,236,.5),transparent);">
     <div class="wrap">
       <div class="section-head reveal">
-        <div>
-          <p class="eyebrow">Word of Mouth</p>
-          <h2 id="rev-title">Worth getting up for.</h2>
-        </div>
-        <div class="rate">
-          <div class="score">4.9</div>
-          <div class="stars" aria-hidden="true">★★★★★</div>
-          <div class="src">Yelp · Kihei</div>
-        </div>
+        <p class="eyebrow">Reviews</p>
+        <h2 id="rev-title">Loved by the early risers.</h2>
       </div>
 
-      <div class="rev-grid reveal-stagger">
-        <figure class="quote">
-          <span class="mk" aria-hidden="true">&ldquo;</span>
-          <blockquote><p>Ordered the ube coconut coffee — a solid 10 out of 10. SO delicious. I went back for a second.</p></blockquote>
-          <figcaption class="by"><b>Five-star review</b> · Yelp</figcaption>
-        </figure>
-
-        <figure class="quote">
-          <span class="mk" aria-hidden="true">&ldquo;</span>
-          <blockquote><p>The lavender matcha latte was supreme — one of the best I've ever had, and I don't even drink coffee.</p></blockquote>
-          <figcaption class="by"><b>Five-star review</b> · Yelp</figcaption>
-        </figure>
-
-        <figure class="quote">
-          <span class="mk" aria-hidden="true">&ldquo;</span>
-          <blockquote><p>The real hidden gem is the food. The paninis and croffles do not disappoint. Don't skip them.</p></blockquote>
-          <figcaption class="by"><b>Five-star review</b> · Yelp</figcaption>
-        </figure>
+      <div class="rev-tabs reveal" role="tablist" aria-label="Choose review source">
+        <button class="rev-tab" id="tab-google" role="tab" aria-selected="true" aria-controls="panel-google">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+          Google
+        </button>
+        <button class="rev-tab" id="tab-yelp" role="tab" aria-selected="false" aria-controls="panel-yelp" tabindex="-1">
+          <span class="y-star" aria-hidden="true">★</span> Yelp
+        </button>
       </div>
+
+      <div class="rev-panel" id="panel-google" role="tabpanel" aria-labelledby="tab-google">
+      <div class="g-reviews reveal">
+        <!-- summary -->
+        <aside class="g-summary" aria-label="Google rating summary">
+          <span class="g-logo" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img" aria-label="Google">
+              <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+              <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+              <path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/>
+              <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+            </svg>
+          </span>
+          <div class="g-score">4.9</div>
+          <div class="g-stars" aria-hidden="true">★★★★★</div>
+          <p class="g-count">Rated <b>4.9</b> across <b>128</b> Google reviews</p>
+          <a class="btn" href="https://www.google.com/maps?cid=16026991967248057547"
+             target="_blank" rel="noopener">Read all reviews <span class="arr" aria-hidden="true">→</span></a>
+          <a class="g-write" href="https://www.google.com/maps?cid=16026991967248057547"
+             target="_blank" rel="noopener">Write a review on Google</a>
+        </aside>
+
+        <!-- real Google reviews (scrollable row) -->
+        <div class="g-rowwrap reveal">
+          <div class="g-row" id="g-row" tabindex="0" role="group" aria-label="Google reviews — scroll for more">
+
+            <article class="g-card">
+              <header>
+                <span class="g-avatar" aria-hidden="true">T</span>
+                <span class="g-id"><b class="g-name">Tim S.</b><span class="g-meta">Local Guide · 3 weeks ago</span></span>
+                <span class="g-gmark" aria-hidden="true"><svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg></span>
+              </header>
+              <div class="g-cstars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote><p>The best Vietnamese coffee outside of Vietnam — I had the salted coffee, highly recommended!</p></blockquote>
+            </article>
+
+            <article class="g-card">
+              <header>
+                <span class="g-avatar" aria-hidden="true">E</span>
+                <span class="g-id"><b class="g-name">Eric O.</b><span class="g-meta">2 weeks ago</span></span>
+                <span class="g-gmark" aria-hidden="true"><svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg></span>
+              </header>
+              <div class="g-cstars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote><p>Honestly the best coffee I have ever had and imo, best shop on the island. Actually had two Vietnamese coffees each day just so I could try all of them during my vacation.</p></blockquote>
+            </article>
+
+            <!-- TODO: this reviewer's name was cut off in the screenshot — replace "Google reviewer" + the avatar letter with the real name -->
+            <article class="g-card">
+              <header>
+                <span class="g-avatar" aria-hidden="true">G</span>
+                <span class="g-id"><b class="g-name">Verified review</b><span class="g-meta">3 days ago</span></span>
+                <span class="g-gmark" aria-hidden="true"><svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg></span>
+              </header>
+              <div class="g-cstars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote><p>It was the best matcha I have ever had. Not the best matcha in Maui. The best matcha of my life… a neighborhood spot doing things quietly and extraordinarily well. Order the banana bread matcha.</p></blockquote>
+            </article>
+
+            <article class="g-card">
+              <header>
+                <span class="g-avatar" aria-hidden="true">T</span>
+                <span class="g-id"><b class="g-name">Traveller</b><span class="g-meta">Local Guide · 1 week ago</span></span>
+                <span class="g-gmark" aria-hidden="true"><svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg></span>
+              </header>
+              <div class="g-cstars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote><p>Delicious, convenient, and friendly staff! 😊😊</p></blockquote>
+            </article>
+
+            <article class="g-card">
+              <header>
+                <span class="g-avatar" aria-hidden="true">T</span>
+                <span class="g-id"><b class="g-name">Tariq Amin</b><span class="g-meta">Local Guide · 1 week ago</span></span>
+                <span class="g-gmark" aria-hidden="true"><svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg></span>
+              </header>
+              <div class="g-cstars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote><p>Coconut coffee and Ube Coconut latte was amazing 👏</p></blockquote>
+            </article>
+
+          </div>
+          <div class="g-rownav">
+            <button class="g-arrow" type="button" data-dir="-1" aria-label="Scroll to previous reviews">‹</button>
+            <button class="g-arrow" type="button" data-dir="1" aria-label="Scroll to next reviews">›</button>
+          </div>
+        </div>
+      </div>
+      </div><!-- /panel-google -->
+
+      <!-- Yelp panel — real: 4.9 / 79 reviews. Quotes paraphrased from real Yelp reviews. -->
+      <div class="rev-panel y" id="panel-yelp" role="tabpanel" aria-labelledby="tab-yelp" hidden>
+        <div class="g-reviews">
+          <aside class="g-summary" aria-label="Yelp rating summary">
+            <span class="yelp-word" aria-hidden="true">Yelp</span>
+            <div class="g-score">4.9</div>
+            <div class="g-stars" aria-hidden="true">★★★★★</div>
+            <p class="g-count">Rated <b>4.9</b> from <b>79</b> Yelp reviews</p>
+            <a class="btn" href="https://www.yelp.com/biz/early-bird-coffee-kihei"
+               target="_blank" rel="noopener">Read all reviews <span class="arr" aria-hidden="true">→</span></a>
+            <a class="g-write" href="https://www.yelp.com/biz/early-bird-coffee-kihei"
+               target="_blank" rel="noopener">Write a review on Yelp</a>
+          </aside>
+
+          <div class="g-rowwrap reveal">
+            <div class="g-row" tabindex="0" role="group" aria-label="Yelp reviews — scroll for more">
+
+              <article class="g-card">
+                <header>
+                  <span class="g-avatar" aria-hidden="true">J</span>
+                  <span class="g-id"><b class="g-name">Jason F.</b><span class="g-meta">Elite · Apr 2, 2026</span></span>
+                  <span class="yelp-mini" aria-hidden="true">Yelp</span>
+                </header>
+                <div class="g-cstars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote><p>Open at 6 AM and I was the only one there. I ordered a 12 oz ube and coconut latte — earthiness from the ube, sweetness from the coconut, a strong, rich flavor. I'd stop by here again.</p></blockquote>
+              </article>
+
+              <!-- TODO: reviewer name cut off in screenshot — replace "Yelp reviewer" + avatar letter with the real name -->
+              <article class="g-card">
+                <header>
+                  <span class="g-avatar" aria-hidden="true">Y</span>
+                  <span class="g-id"><b class="g-name">Verified review</b><span class="g-meta">5-star review</span></span>
+                  <span class="yelp-mini" aria-hidden="true">Yelp</span>
+                </header>
+                <div class="g-cstars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote><p>Very good, extremely strong lattes. I had the iced coconut and ube latte — delicious, smooth, strong flavors. My wife got the Saigon and the black sesame and they were both solid.</p></blockquote>
+              </article>
+
+              <article class="g-card">
+                <header>
+                  <span class="g-avatar" aria-hidden="true">J</span>
+                  <span class="g-id"><b class="g-name">Jamie L.</b><span class="g-meta">Elite · Apr 3, 2026</span></span>
+                  <span class="yelp-mini" aria-hidden="true">Yelp</span>
+                </header>
+                <div class="g-cstars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote><p>So delicious — americano with coconut foam, my friend got the pan-dan foam, both amazing. Also tried the Italian panini on good sourdough and just MWAH. There was a line both times because it's so good.</p></blockquote>
+              </article>
+
+              <!-- TODO: reviewer name cut off in screenshot — replace "Yelp reviewer" + avatar letter with the real name -->
+              <article class="g-card">
+                <header>
+                  <span class="g-avatar" aria-hidden="true">Y</span>
+                  <span class="g-id"><b class="g-name">Verified review</b><span class="g-meta">May 13, 2026</span></span>
+                  <span class="yelp-mini" aria-hidden="true">Yelp</span>
+                </header>
+                <div class="g-cstars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote><p>Absolutely amazing. The two women working were such a delight. I got the Iced Caramel Macnut Latte (half sweet) with oat milk — balanced and super flavorful. I may be sticking with this one the rest of my trip!</p></blockquote>
+              </article>
+
+            </div>
+            <div class="g-rownav">
+              <button class="g-arrow" type="button" data-dir="-1" aria-label="Scroll to previous reviews">‹</button>
+              <button class="g-arrow" type="button" data-dir="1" aria-label="Scroll to next reviews">›</button>
+            </div>
+          </div>
+        </div>
+      </div><!-- /panel-yelp -->
     </div>
   </section>
 
@@ -1024,14 +1246,9 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="#top" aria-label="Early Bird Coffee — home">
-          <svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-            <circle cx="20" cy="22" r="13" fill="none" stroke="#E2A23C" stroke-width="2.4"/>
-            <path d="M20 9 V3 M20 9 l-4 -4 M20 9 l4 -4" stroke="#E2A23C" stroke-width="2.4" stroke-linecap="round"/>
-            <path d="M13 23 q7 -9 14 0" fill="none" stroke="#E2A23C" stroke-width="2.4" stroke-linecap="round"/>
-            <circle cx="20" cy="22" r="3" fill="#E2A23C"/>
-          </svg>
-          <span><b>Early Bird</b> <span>Coffee</span></span>
+        <a class="foot-logo" href="#top" aria-label="Early Bird Coffee — home">
+          <img src="assets/logo.png" width="200" height="178" decoding="async"
+               alt="Early Bird Coffee — a lei-draped bird perched on a coffee cup" />
         </a>
         <p>A locally owned coffee truck on South Kihei Road. Vietnamese coffee,
            island cold foams, croffles &amp; paninis — made fresh, served early.</p>
@@ -1120,6 +1337,60 @@
       const p = v.play();
       if (p && p.catch) p.catch(() => {}); // ignore benign autoplay rejections
     }
+  })();
+
+  /* ---- review source tabs (Google / Yelp) ---- */
+  (function(){
+    const tabs = [...document.querySelectorAll('.rev-tab')];
+    if (!tabs.length) return;
+    const select = (tab) => {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !on;
+      });
+      // the newly-shown panel's scroll row now has real dimensions — refresh arrow states
+      window.dispatchEvent(new Event('resize'));
+    };
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        let i = tabs.indexOf(tab);
+        i = e.key === 'ArrowRight' ? (i + 1) % tabs.length : (i - 1 + tabs.length) % tabs.length;
+        tabs[i].focus(); select(tabs[i]);
+      });
+    });
+  })();
+
+  /* ---- scrollable review rows (Google + Yelp): arrows + disabled state ---- */
+  (function(){
+    document.querySelectorAll('.g-rowwrap').forEach(wrap => {
+      const row = wrap.querySelector('.g-row');
+      if (!row) return;
+      const arrows = [...wrap.querySelectorAll('.g-arrow')];
+      const stepSize = () => {
+        const card = row.querySelector('.g-card');
+        const gap = parseFloat(getComputedStyle(row).columnGap) || 16;
+        return card ? card.offsetWidth + gap : 290;
+      };
+      const update = () => {
+        const max = row.scrollWidth - row.clientWidth - 2;
+        if (arrows[0]) arrows[0].disabled = row.scrollLeft <= 2;
+        if (arrows[1]) arrows[1].disabled = row.scrollLeft >= max;
+      };
+      arrows.forEach(btn => btn.addEventListener('click', () => {
+        // 'auto' (instant snap) is reliable across engines; touch-swipe still glides natively
+        row.scrollBy({ left: parseInt(btn.dataset.dir, 10) * stepSize(), behavior: 'auto' });
+        update(); // update immediately — don't depend on a programmatic 'scroll' event
+      }));
+      row.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    });
   })();
 </script>
 </body>
