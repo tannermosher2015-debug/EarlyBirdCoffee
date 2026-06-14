@@ -73,7 +73,7 @@
     --fs-cap:  .8rem;
 
     /* spacing / shape */
-    --section-y: clamp(3rem, 9vw, 7.5rem);
+    --section-y: clamp(2.5rem, 5.5vw, 4.75rem);
     --gutter:    clamp(1.25rem, 5vw, 4rem);
     --maxw:      1200px;
     --radius:    18px;
@@ -85,7 +85,7 @@
 
   *,*::before,*::after{ box-sizing:border-box; }
 
-  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; scroll-padding-top:96px; }
   @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
 
   body{
@@ -194,12 +194,12 @@
     background:rgba(242,231,213,.94);
   }
   .nav{ display:flex; align-items:center; justify-content:space-between;
-        gap:1rem; min-height:72px; }
+        gap:1rem; min-height:84px; }
 
   .brand{ display:inline-flex; align-items:center; gap:.6rem;
           font-family:var(--display); font-weight:800; font-size:1.32rem;
           letter-spacing:-.02em; color:var(--text); }
-  .brand-logo{ height:clamp(46px,6vw,56px); width:auto; display:block;
+  .brand-logo{ height:clamp(56px,7vw,70px); width:auto; display:block;
                object-fit:contain; }
   .brand b{ font-weight:800; }
   .brand span{ font-style:italic; font-weight:500; }
@@ -243,7 +243,7 @@
 
   /* mobile panel */
   .mobile-nav{
-    position:fixed; inset:72px 0 0 0; z-index:55;
+    position:fixed; inset:84px 0 0 0; z-index:55;
     background:var(--bg);
     padding:2rem var(--gutter) 3rem;
     display:flex; flex-direction:column; gap:.4rem;
@@ -401,7 +401,8 @@
   }
 
   /* MENU — clean grouped list ---------------------------------- */
-  .menu-list{ display:flex; flex-direction:column; gap:clamp(2.2rem,5vw,3.4rem); }
+  .menu-list{ display:flex; flex-direction:column; gap:clamp(1.9rem,4vw,2.8rem); }
+  .menu-sub{ font-size:.92rem; color:var(--text-mute); margin:0 0 .5rem; }
   .menu-group-title{
     display:flex; align-items:center; gap:1.1rem;
     font-family:var(--body); font-size:.82rem; font-weight:600;
@@ -715,7 +716,6 @@
       <ul class="nav-links">
         <li><a href="#story">Our Story</a></li>
         <li><a href="#menu">Menu</a></li>
-        <li><a href="#foams">Cold Foams</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#find">Find Us</a></li>
         <li><a href="#reviews">Reviews</a></li>
@@ -735,10 +735,9 @@
 <div class="mobile-nav" id="mobile-nav">
   <a href="#story"><span class="num">01</span> Our Story</a>
   <a href="#menu"><span class="num">02</span> Menu</a>
-  <a href="#foams"><span class="num">03</span> Cold Foams</a>
-  <a href="#gallery"><span class="num">04</span> Gallery</a>
-  <a href="#find"><span class="num">05</span> Find Us</a>
-  <a href="#reviews"><span class="num">06</span> Reviews</a>
+  <a href="#gallery"><span class="num">03</span> Gallery</a>
+  <a href="#find"><span class="num">04</span> Find Us</a>
+  <a href="#reviews"><span class="num">05</span> Reviews</a>
   <a class="btn" href="#find">Find the Truck <span class="arr" aria-hidden="true">→</span></a>
 </div>
 
@@ -864,6 +863,35 @@
         </div>
 
         <div class="menu-group">
+          <h3 class="menu-group-title">Cold Foams</h3>
+          <p class="menu-sub">House-whipped — add any of them to any drink.</p>
+
+          <article class="menu-item">
+            <h4 class="mi-name">Coconut</h4>
+            <p class="mi-desc">Toasty, tropical, and impossibly silky — the desert-island default
+               that started it all.</p>
+          </article>
+
+          <article class="menu-item">
+            <h4 class="mi-name">Ube</h4>
+            <p class="mi-desc">Sweet purple yam with a vanilla-nutty edge. As pretty as it is
+               addictive over dark Vietnamese coffee.</p>
+          </article>
+
+          <article class="menu-item">
+            <h4 class="mi-name">Black Sesame</h4>
+            <p class="mi-desc">Deep, roasty, and grown-up. The foam for people who like their
+               sweetness with a little shadow.</p>
+          </article>
+
+          <article class="menu-item">
+            <h4 class="mi-name">Salted Caramel</h4>
+            <p class="mi-desc">Buttery caramel with a flake of sea salt. The crowd-pleaser that
+               never sends anyone home unhappy.</p>
+          </article>
+        </div>
+
+        <div class="menu-group">
           <h3 class="menu-group-title">Food</h3>
 
           <article class="menu-item">
@@ -882,45 +910,6 @@
       </div>
       <p class="menu-note">Menu rotates with the seasons and what's fresh — full
         list &amp; prices are posted at the truck window.</p>
-    </div>
-  </section>
-
-  <!-- ===================== COLD FOAMS ===================== -->
-  <section class="band dark" id="foams" aria-labelledby="foam-title">
-    <span class="glow" aria-hidden="true"></span>
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">The Signature</p>
-        <h2 id="foam-title">Island cold foams, whipped in-house.</h2>
-        <p class="lead">The crown on every cup. Four house foams, each one tuned
-          to taste like somewhere you'd rather be. Add any of them to any drink.</p>
-      </div>
-
-      <div class="foam-list reveal">
-        <article class="foam">
-          <div class="foam-head"><span class="num" aria-hidden="true">01</span><h3>Coconut</h3></div>
-          <p>Toasty, tropical, and impossibly silky — the desert-island default
-             that started it all.</p>
-        </article>
-
-        <article class="foam">
-          <div class="foam-head"><span class="num" aria-hidden="true">02</span><h3>Ube</h3></div>
-          <p>Sweet purple yam with a vanilla-nutty edge. As pretty as it is
-             addictive over dark Vietnamese coffee.</p>
-        </article>
-
-        <article class="foam">
-          <div class="foam-head"><span class="num" aria-hidden="true">03</span><h3>Black Sesame</h3></div>
-          <p>Deep, roasty, and grown-up. The foam for people who like their
-             sweetness with a little shadow.</p>
-        </article>
-
-        <article class="foam">
-          <div class="foam-head"><span class="num" aria-hidden="true">04</span><h3>Salted Caramel</h3></div>
-          <p>Buttery caramel with a flake of sea salt. The crowd-pleaser that
-             never sends anyone home unhappy.</p>
-        </article>
-      </div>
     </div>
   </section>
 
