@@ -399,54 +399,31 @@
     padding:.7em 1.1em; border-radius:999px; box-shadow:var(--shadow-sm);
   }
 
-  /* MENU ------------------------------------------------------ */
-  .menu-grid{ display:grid; grid-template-columns:repeat(12,1fr);
-              gap:clamp(1rem,2vw,1.4rem); }
-  .m-card{
-    grid-column:span 4;
-    background:var(--surface); border:1px solid var(--line);
-    border-radius:var(--radius); padding:1.6rem 1.5rem 1.5rem;
-    display:flex; flex-direction:column;
-    transition:transform .4s var(--ease), box-shadow .4s var(--ease),
-               border-color .4s var(--ease);
+  /* MENU — clean grouped list ---------------------------------- */
+  .menu-list{ display:flex; flex-direction:column; gap:clamp(2.2rem,5vw,3.4rem); }
+  .menu-group-title{
+    display:flex; align-items:center; gap:1.1rem;
+    font-family:var(--body); font-size:.82rem; font-weight:600;
+    letter-spacing:.24em; text-transform:uppercase; color:var(--primary);
+    margin:0 0 .3rem;
   }
-  .m-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-sm);
-                 border-color:rgba(168,78,44,.4); }
-  .m-card.feature{ grid-column:span 6; background:var(--text); color:var(--on-dark);
-                   border-color:transparent; }
-  .m-swatch{
-    width:56px; height:56px; border-radius:14px; margin-bottom:1.1rem; flex:none;
-    border:1px solid var(--line-soft);
-    /* small CSS-rendered "drink" cue per item; real menu photos go here */
+  .menu-group-title::after{ content:""; flex:1; height:1px; background:var(--line); }
+  .menu-item{
+    display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.5fr);
+    gap:.45rem clamp(1.5rem,4vw,3.5rem); align-items:baseline;
+    padding:clamp(1.05rem,2.4vw,1.45rem) 0; border-top:1px solid var(--line-soft);
   }
-  .m-card.feature .m-swatch{ border-color:rgba(242,231,213,.18); }
-  .sw-viet{ background:
-      linear-gradient(180deg,#fbf6ec 0 38%, #6f4a32 38% 100%); }
-  .sw-coconut{ background:
-      linear-gradient(180deg,#fbf6ec 0 46%, #3a2a1e 46% 100%); }
-  .sw-matcha{ background:
-      radial-gradient(circle at 50% 30%,#fbf6ec 0 30%, transparent 31%),
-      linear-gradient(180deg,#9aa15f,#6f7a3c); }
-  .sw-tea{ background:linear-gradient(180deg,#e6c79a,#b98a52); }
-  .sw-croffle{ background:
-      repeating-linear-gradient(45deg,#e9c98f 0 7px,#cda35f 7px 14px); }
-  .sw-panini{ background:
-      repeating-linear-gradient(0deg,#caa066 0 8px,#a8763f 8px 12px); }
-
-  .m-kicker{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
-             color:var(--primary); font-weight:600; }
-  .m-card.feature .m-kicker{ color:var(--accent); }
-  .m-card h3{ font-size:var(--fs-h3); margin:.45rem 0 .55rem; }
-  .m-card p{ color:var(--text-mute); font-size:.97rem; }
-  .m-card.feature p{ color:var(--on-dark-mute); }
-  .m-foot{ margin-top:auto; padding-top:1.1rem; font-size:.82rem;
-           letter-spacing:.04em; color:var(--text-mute);
-           display:flex; align-items:center; gap:.5rem; }
-  .m-card.feature .m-foot{ color:var(--on-dark-mute); }
-  .m-foot .dot{ width:6px; height:6px; border-radius:50%; background:var(--accent); }
-
-  .menu-note{ margin-top:1.6rem; font-size:.86rem; color:var(--text-mute);
-              text-align:center; }
+  .menu-item:first-of-type{ border-top:0; padding-top:.4rem; }
+  .mi-name{ display:flex; align-items:baseline; gap:.65rem; flex-wrap:wrap;
+            font-family:var(--display); font-weight:600; line-height:1.15;
+            font-size:clamp(1.22rem,2.1vw,1.5rem); color:var(--text); margin:0; }
+  .mi-badge{ font-family:var(--body); font-size:.62rem; font-weight:600;
+             letter-spacing:.14em; text-transform:uppercase; color:var(--primary);
+             background:rgba(168,78,44,.1); padding:.34em .7em; border-radius:999px;
+             white-space:nowrap; transform:translateY(-2px); }
+  .mi-desc{ color:var(--text-mute); font-size:1rem; line-height:1.55; margin:0; }
+  .menu-note{ margin-top:clamp(2rem,4vw,3rem); font-size:.86rem;
+              color:var(--text-mute); text-align:center; }
 
   /* COLD FOAM (dark section) ---------------------------------- */
   .dark{ background:var(--text); color:var(--on-dark); }
@@ -457,37 +434,20 @@
                background:radial-gradient(circle,rgba(226,162,60,.22),transparent 65%); }
   .dark .wrap{ position:relative; z-index:1; }
   .dark .section-head h2{ color:var(--on-dark); }
-  .foam-grid{ display:grid; grid-template-columns:repeat(4,1fr);
-              gap:clamp(1rem,2vw,1.4rem); }
+  .foam-list{ display:flex; flex-direction:column; }
   .foam{
-    border:1px solid rgba(242,231,213,.16); border-radius:var(--radius);
-    padding:1.5rem 1.35rem; background:rgba(242,231,213,.03);
-    transition:transform .4s var(--ease), background .4s var(--ease),
-               border-color .4s var(--ease);
+    display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.55fr);
+    gap:.4rem clamp(1.4rem,4vw,3.5rem); align-items:baseline;
+    padding:clamp(1.05rem,2.4vw,1.45rem) 0;
+    border-top:1px solid rgba(242,231,213,.16);
   }
-  .foam:hover{ transform:translateY(-6px); background:rgba(242,231,213,.06);
-               border-color:rgba(226,162,60,.5); }
-  .foam .cup{
-    width:100%; height:90px; border-radius:12px; margin-bottom:1.1rem;
-    position:relative; overflow:hidden; border:1px solid rgba(242,231,213,.1);
-  }
-  /* each foam swatch = a "cold foam over coffee" cross-section */
-  .cup .foam-layer{ position:absolute; left:0; right:0; top:0; height:42%; }
-  .cup .coffee-layer{ position:absolute; left:0; right:0; bottom:0; height:58%;
-                      background:linear-gradient(180deg,#4a3220,#2c1d12); }
-  .foam-coconut .foam-layer{ background:linear-gradient(180deg,#fffaf0,#efe3cf); }
-  .foam-ube     .foam-layer{ background:linear-gradient(180deg,#b89bd6,#8d6cb8); }
-  .foam-sesame  .foam-layer{ background:linear-gradient(180deg,#cfc2b2,#6f6457); }
-  .foam-sesame  .foam-layer::after{ content:""; position:absolute; inset:0;
-      background:radial-gradient(circle at 20% 40%,#241d15 1px,transparent 1.4px),
-                radial-gradient(circle at 60% 60%,#241d15 1px,transparent 1.4px),
-                radial-gradient(circle at 80% 30%,#241d15 1px,transparent 1.4px);
-      background-size:14px 14px; }
-  .foam-caramel .foam-layer{ background:linear-gradient(180deg,#f0c97f,#d89b46); }
-  .foam .num{ font-family:var(--display); font-size:.9rem; color:var(--accent);
-              font-weight:600; }
-  .foam h3{ font-size:1.2rem; color:var(--on-dark); margin:.3rem 0 .5rem; }
-  .foam p{ font-size:.9rem; color:var(--on-dark-mute); line-height:1.55; }
+  .foam:first-of-type{ border-top:0; padding-top:.4rem; }
+  .foam-head{ display:flex; align-items:baseline; gap:.85rem; }
+  .foam .num{ font-family:var(--display); font-size:1.05rem; color:var(--accent);
+              font-weight:600; line-height:1; }
+  .foam h3{ font-size:clamp(1.2rem,2vw,1.4rem); color:var(--on-dark); margin:0;
+            font-family:var(--display); font-weight:600; line-height:1.15; }
+  .foam p{ font-size:.97rem; color:var(--on-dark-mute); line-height:1.55; margin:0; }
 
   /* GALLERY --------------------------------------------------- */
   .gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr);
@@ -703,10 +663,8 @@
     .story-art{ max-width:420px; margin-inline:auto; }
     .find{ grid-template-columns:1fr; }
     .map-card{ min-height:280px; order:-1; }
-    .foam-grid{ grid-template-columns:repeat(2,1fr); }
     .g-reviews{ grid-template-columns:1fr; }
     .g-summary{ position:static; }
-    .m-card, .m-card.feature{ grid-column:span 6; }
     .foot-grid{ grid-template-columns:1fr 1fr; }
     .foot-brand{ grid-column:1 / -1; }
   }
@@ -718,8 +676,8 @@
     .hero-stats div{ border-right:0; border-bottom:1px solid var(--line-soft); }
     .hero-stats div:last-child{ border-bottom:0; }
     .hero-actions .btn{ width:100%; }
-    .menu-grid .m-card, .menu-grid .m-card.feature{ grid-column:1 / -1; }
-    .foam-grid{ grid-template-columns:1fr; }
+    .menu-item{ grid-template-columns:1fr; gap:.35rem; }
+    .foam{ grid-template-columns:1fr; gap:.3rem; }
     .foot-grid{ grid-template-columns:1fr; gap:2rem; }
     .g-cards{ grid-template-columns:1fr; }
     .gallery-grid{ grid-template-columns:repeat(2,1fr); }
@@ -873,62 +831,52 @@
           foam whipped in-house. Here's what the regulars reach for.</p>
       </div>
 
-      <div class="menu-grid reveal-stagger">
+      <div class="menu-list reveal">
 
-        <article class="m-card feature">
-          <span class="m-swatch sw-coconut" aria-hidden="true"></span>
-          <span class="m-kicker">Signature</span>
-          <h3>Coconut Cloud Vietnamese</h3>
-          <p>Our bold dark roast dripped over sweetened condensed milk, poured
-             over ice, and capped with a thick coconut cold foam. The one people
-             drive across the island for.</p>
-          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Hot or iced</span>
-        </article>
+        <div class="menu-group">
+          <h3 class="menu-group-title">Drinks</h3>
 
-        <article class="m-card feature">
-          <span class="m-swatch sw-viet" aria-hidden="true"></span>
-          <span class="m-kicker">Fan favorite</span>
-          <h3>Ube Coconut Coffee</h3>
-          <p>Vietnamese coffee swirled with purple-yam ube and creamy coconut —
-             tropical, a little nutty, reviewer-rated a flat ten out of ten.</p>
-          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Island special</span>
-        </article>
+          <article class="menu-item">
+            <h4 class="mi-name">Coconut Cloud Vietnamese <span class="mi-badge">Signature</span></h4>
+            <p class="mi-desc">Our bold dark roast dripped over sweetened condensed milk, poured
+               over ice, and capped with a thick coconut cold foam. The one people drive across
+               the island for.</p>
+          </article>
 
-        <article class="m-card">
-          <span class="m-swatch sw-matcha" aria-hidden="true"></span>
-          <span class="m-kicker">Whisked to order</span>
-          <h3>Lavender Matcha Latte</h3>
-          <p>Ceremonial-grade matcha with a whisper of lavender. Smooth enough to
-             convert the people who say they don't drink coffee.</p>
-          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Add lychee</span>
-        </article>
+          <article class="menu-item">
+            <h4 class="mi-name">Ube Coconut Coffee <span class="mi-badge">Fan favorite</span></h4>
+            <p class="mi-desc">Vietnamese coffee swirled with purple-yam ube and creamy coconut —
+               tropical, a little nutty, reviewer-rated a flat ten out of ten.</p>
+          </article>
 
-        <article class="m-card">
-          <span class="m-swatch sw-tea" aria-hidden="true"></span>
-          <span class="m-kicker">Shaken fresh</span>
-          <h3>Island Milk Teas</h3>
-          <p>Silky milk teas finished with the same house cold foams. Pick your
-             flavor, pick your foam, and we'll build it.</p>
-          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Customizable</span>
-        </article>
+          <article class="menu-item">
+            <h4 class="mi-name">Lavender Matcha Latte</h4>
+            <p class="mi-desc">Ceremonial-grade matcha with a whisper of lavender. Smooth enough
+               to convert the people who say they don't drink coffee.</p>
+          </article>
 
-        <article class="m-card">
-          <span class="m-swatch sw-croffle" aria-hidden="true"></span>
-          <span class="m-kicker">Made fresh daily</span>
-          <h3>Ube Croffle</h3>
-          <p>A croissant pressed into a waffle until it's shatter-crisp, then
-             dressed with ube cream. The hidden gem hiding behind the coffee.</p>
-          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Best warm</span>
-        </article>
+          <article class="menu-item">
+            <h4 class="mi-name">Island Milk Teas</h4>
+            <p class="mi-desc">Silky milk teas finished with the same house cold foams. Pick your
+               flavor, pick your foam, and we'll build it.</p>
+          </article>
+        </div>
 
-        <article class="m-card">
-          <span class="m-swatch sw-panini" aria-hidden="true"></span>
-          <span class="m-kicker">If you're hungry</span>
-          <h3>Savory Paninis</h3>
-          <p>Pressed-to-order paninis for when coffee alone won't cut it. Warm,
-             crisp, and exactly what a beach day needs.</p>
-          <span class="m-foot"><span class="dot" aria-hidden="true"></span> Daily selection</span>
-        </article>
+        <div class="menu-group">
+          <h3 class="menu-group-title">Food</h3>
+
+          <article class="menu-item">
+            <h4 class="mi-name">Ube Croffle</h4>
+            <p class="mi-desc">A croissant pressed into a waffle until it's shatter-crisp, then
+               dressed with ube cream. The hidden gem hiding behind the coffee.</p>
+          </article>
+
+          <article class="menu-item">
+            <h4 class="mi-name">Savory Paninis</h4>
+            <p class="mi-desc">Pressed-to-order paninis for when coffee alone won't cut it. Warm,
+               crisp, and exactly what a beach day needs.</p>
+          </article>
+        </div>
 
       </div>
       <p class="menu-note">Menu rotates with the seasons and what's fresh — full
@@ -947,35 +895,27 @@
           to taste like somewhere you'd rather be. Add any of them to any drink.</p>
       </div>
 
-      <div class="foam-grid reveal-stagger">
-        <article class="foam foam-coconut">
-          <div class="cup" aria-hidden="true"><span class="foam-layer"></span><span class="coffee-layer"></span></div>
-          <span class="num">01</span>
-          <h3>Coconut</h3>
+      <div class="foam-list reveal">
+        <article class="foam">
+          <div class="foam-head"><span class="num" aria-hidden="true">01</span><h3>Coconut</h3></div>
           <p>Toasty, tropical, and impossibly silky — the desert-island default
              that started it all.</p>
         </article>
 
-        <article class="foam foam-ube">
-          <div class="cup" aria-hidden="true"><span class="foam-layer"></span><span class="coffee-layer"></span></div>
-          <span class="num">02</span>
-          <h3>Ube</h3>
+        <article class="foam">
+          <div class="foam-head"><span class="num" aria-hidden="true">02</span><h3>Ube</h3></div>
           <p>Sweet purple yam with a vanilla-nutty edge. As pretty as it is
              addictive over dark Vietnamese coffee.</p>
         </article>
 
-        <article class="foam foam-sesame">
-          <div class="cup" aria-hidden="true"><span class="foam-layer"></span><span class="coffee-layer"></span></div>
-          <span class="num">03</span>
-          <h3>Black Sesame</h3>
+        <article class="foam">
+          <div class="foam-head"><span class="num" aria-hidden="true">03</span><h3>Black Sesame</h3></div>
           <p>Deep, roasty, and grown-up. The foam for people who like their
              sweetness with a little shadow.</p>
         </article>
 
-        <article class="foam foam-caramel">
-          <div class="cup" aria-hidden="true"><span class="foam-layer"></span><span class="coffee-layer"></span></div>
-          <span class="num">04</span>
-          <h3>Salted Caramel</h3>
+        <article class="foam">
+          <div class="foam-head"><span class="num" aria-hidden="true">04</span><h3>Salted Caramel</h3></div>
           <p>Buttery caramel with a flake of sea salt. The crowd-pleaser that
              never sends anyone home unhappy.</p>
         </article>
