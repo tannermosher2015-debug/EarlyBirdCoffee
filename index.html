@@ -259,59 +259,75 @@
      HERO
      =========================================================== */
   .hero{ position:relative; overflow:hidden;
-         padding-top:clamp(2.5rem,7vw,5rem);
+         padding-top:clamp(2rem,5vw,3.5rem);
          padding-bottom:clamp(3rem,8vw,6rem); }
 
-  /* layered dawn sky + rising sun (CSS-generated, no images) */
+  /* layered dawn sky + soft sun glow (CSS-generated, no images) */
   .hero-sky{
     position:absolute; inset:0; z-index:0; pointer-events:none;
     background:
       radial-gradient(120% 80% at 50% 118%,
-        rgba(226,162,60,.55) 0%,
-        rgba(168,78,44,.32) 34%,
+        rgba(226,162,60,.5) 0%,
+        rgba(168,78,44,.26) 34%,
         rgba(242,231,213,0) 64%);
   }
   .hero-sun{
-    position:absolute; left:50%; bottom:-7%;
-    width:min(78vw,640px); aspect-ratio:1; translate:-50% 0;
-    z-index:0; pointer-events:none;
+    position:absolute; right:-6%; top:-14%;
+    width:min(62vw,560px); aspect-ratio:1; z-index:0; pointer-events:none;
     background:
       radial-gradient(circle at 50% 50%,
-        var(--accent) 0%,
-        var(--accent) 30%,
-        rgba(226,162,60,.42) 46%,
-        rgba(226,162,60,0) 70%);
+        rgba(226,162,60,.5) 0%,
+        rgba(226,162,60,.26) 38%,
+        rgba(226,162,60,0) 68%);
     filter:blur(.5px);
     animation:rise 1.6s var(--ease) both;
   }
-  .hero-rays{
-    position:absolute; left:50%; bottom:-7%; translate:-50% 0;
-    width:min(150vw,1300px); aspect-ratio:1; z-index:0; pointer-events:none;
-    background:repeating-conic-gradient(from 0deg at 50% 50%,
-        rgba(226,162,60,.12) 0deg 4deg,
-        rgba(226,162,60,0) 4deg 14deg);
-    -webkit-mask:radial-gradient(circle at 50% 50%, #000 18%, transparent 60%);
-            mask:radial-gradient(circle at 50% 50%, #000 18%, transparent 60%);
-    opacity:.7;
-    animation:spin 90s linear infinite, fadein 2s ease both;
-  }
 
-  .hero-inner{ position:relative; z-index:2; text-align:center;
-               padding-top:clamp(1rem,5vw,3rem); }
-  .hero .eyebrow{ justify-content:center; margin-bottom:1.4rem; }
+  /* split hero: copy + tall video panel */
+  .hero-grid{
+    position:relative; z-index:2;
+    display:grid; grid-template-columns:1.05fr .95fr;
+    gap:clamp(2rem,5vw,4.5rem); align-items:center;
+    padding-top:clamp(.5rem,3vw,2rem);
+  }
+  .hero-inner{ text-align:left; }
+  .hero .eyebrow{ justify-content:flex-start; margin-bottom:1.4rem; }
   .hero h1{
     font-size:var(--fs-h1);
     font-weight:600;
     line-height:.92;
     letter-spacing:-.03em;
-    margin:0 auto;
-    max-width:14ch;
+    margin:0;
+    max-width:12ch;
   }
   .hero h1 .it{ font-style:italic; font-weight:500; color:var(--primary); }
-  .hero-sub{ margin:1.6rem auto 0; max-width:52ch; font-size:var(--fs-lead);
+  .hero-sub{ margin:1.6rem 0 0; max-width:46ch; font-size:var(--fs-lead);
              color:var(--text-mute); }
   .hero-actions{ margin-top:2.2rem; display:flex; gap:1rem; flex-wrap:wrap;
-                 justify-content:center; }
+                 justify-content:flex-start; }
+
+  /* vertical video panel */
+  .hero-media{ position:relative; }
+  .video-frame{
+    position:relative; margin-inline:auto; width:100%; max-width:355px;
+    aspect-ratio:9/16; max-height:min(72vh,640px);
+    border-radius:var(--radius-lg); overflow:hidden;
+    background:var(--text); border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    animation:rise 1s var(--ease) .15s both;
+  }
+  .hero-video{ position:absolute; inset:0; width:100%; height:100%;
+               object-fit:cover; display:block; }
+  .video-tag{
+    position:absolute; left:14px; bottom:14px; z-index:2;
+    display:inline-flex; align-items:center; gap:.55em;
+    background:var(--primary); color:var(--on-dark);
+    font-family:var(--body); font-weight:600; font-size:.72rem;
+    letter-spacing:.12em; text-transform:uppercase;
+    padding:.55em .9em; border-radius:999px; box-shadow:var(--shadow-sm);
+  }
+  .video-tag .pip{ width:7px; height:7px; border-radius:50%; background:var(--accent);
+                   animation:pulse 2.4s ease-in-out infinite; }
 
   /* stat strip below hero */
   .hero-stats{
@@ -610,8 +626,7 @@
 
   /* keyframes */
   @keyframes rise{ from{ opacity:0; transform:translateY(26px); } to{ opacity:1; transform:none; } }
-  @keyframes spin{ to{ transform:rotate(360deg); } }
-  @keyframes fadein{ from{ opacity:0; } to{ opacity:.7; } }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.25; } }
 
   /* ===========================================================
      RESPONSIVE
@@ -619,6 +634,15 @@
   @media (max-width:960px){
     .nav-links, .nav-cta .btn{ display:none; }
     .burger{ display:inline-flex; }
+    .hero-grid{ grid-template-columns:1fr; gap:clamp(2rem,7vw,3rem);
+                text-align:center; }
+    .hero-inner{ text-align:center; order:1; }
+    .hero-media{ order:2; }
+    .hero .eyebrow{ justify-content:center; }
+    .hero h1{ margin-inline:auto; }
+    .hero-sub{ margin-inline:auto; }
+    .hero-actions{ justify-content:center; }
+    .video-frame{ max-width:330px; }
     .story{ grid-template-columns:1fr; }
     .story-art{ max-width:420px; margin-inline:auto; }
     .find{ grid-template-columns:1fr; }
@@ -652,7 +676,6 @@
       animation-duration:.001ms !important; animation-iteration-count:1 !important;
       transition-duration:.001ms !important; scroll-behavior:auto !important;
     }
-    .hero-rays{ animation:none; opacity:.5; }
     .js .reveal, .js .reveal-stagger > *{ opacity:1 !important; transform:none !important; }
     .stagger > *{ animation:none !important; }
   }
@@ -709,21 +732,34 @@
   <!-- ===================== HERO ===================== -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-sky" aria-hidden="true"></div>
-    <div class="hero-rays" aria-hidden="true"></div>
     <div class="hero-sun" aria-hidden="true"></div>
 
     <div class="wrap">
-      <div class="hero-inner stagger">
-        <p class="eyebrow">Kihei · Maui · Coffee Truck</p>
-        <h1 id="hero-title">Sunrise<br>in a <span class="it">cup.</span></h1>
-        <p class="hero-sub">
-          Premium Vietnamese coffee, ceremonial matcha, and island-inspired cold
-          foams — handcrafted from a little truck on South Kihei Road, open before
-          the beach crowd wakes up.
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="#menu">See the Menu <span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn--ghost" href="#find">Hours &amp; Location</a>
+      <div class="hero-grid">
+        <div class="hero-inner stagger">
+          <p class="eyebrow">Kihei · Maui · Coffee Truck</p>
+          <h1 id="hero-title">Sunrise<br>in a <span class="it">cup.</span></h1>
+          <p class="hero-sub">
+            Premium Vietnamese coffee, ceremonial matcha, and island-inspired cold
+            foams — handcrafted from a little truck on South Kihei Road, open before
+            the beach crowd wakes up.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#menu">See the Menu <span class="arr" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="#find">Hours &amp; Location</a>
+          </div>
+        </div>
+
+        <div class="hero-media reveal">
+          <div class="video-frame">
+            <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+                   poster="assets/hero-poster.jpg"
+                   aria-label="Iced Early Bird Coffee drinks — Vietnamese, salted, ube, and coconut — on a sunny table on South Kihei Road, Maui.">
+              <source src="assets/hero.webm" type="video/webm" />
+              <source src="assets/hero.mp4" type="video/mp4" />
+            </video>
+            <span class="video-tag"><span class="pip" aria-hidden="true"></span> Made fresh daily</span>
+          </div>
         </div>
       </div>
 
@@ -1070,6 +1106,21 @@
   } else {
     targets.forEach(t => t.classList.add('in'));
   }
+
+  /* ---- hero video: respect reduced-motion, ensure muted autoplay ---- */
+  (function(){
+    const v = document.querySelector('.hero-video');
+    if (!v) return;
+    v.muted = true;                 // required for autoplay on Safari/iOS
+    if (!motionOK){                 // reduced motion: hold on the poster frame
+      v.removeAttribute('autoplay');
+      v.pause();
+      try { v.currentTime = 0; } catch (e) {}
+    } else {
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {}); // ignore benign autoplay rejections
+    }
+  })();
 </script>
 </body>
 </html>
