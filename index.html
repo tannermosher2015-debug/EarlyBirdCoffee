@@ -717,6 +717,10 @@
                 display:flex; flex-wrap:wrap; gap:.6rem 1.4rem;
                 justify-content:space-between; align-items:center;
                 color:var(--on-dark-mute); font-size:.82rem; }
+  .foot-credit a{ color:var(--on-dark); font-weight:600;
+                  transition:color .25s var(--ease); }
+  .foot-credit a:hover{ color:var(--accent); }
+  a.foot-credit-link:focus-visible{ outline-offset:2px; }
 
   /* ===========================================================
      SCROLL REVEAL
@@ -1399,8 +1403,8 @@
     </div>
 
     <div class="foot-bottom">
-      <span>© <span id="year">2026</span> Early Bird Coffee · Kihei, Maui</span>
-      <span>Made for the early risers ☀</span>
+      <span>© <span id="year">2026</span> Early Bird Coffee · Kihei, Maui · Made for the early risers ☀</span>
+      <span class="foot-credit">Design by <a href="https://frontlinewebdesign.tech" target="_blank" rel="noopener">Frontline Web Designs</a></span>
     </div>
   </div>
 </footer>
