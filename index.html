@@ -590,54 +590,54 @@
   .hours-foot{ margin-top:.9rem; font-size:.82rem; color:var(--text-mute); }
 
   /* REVIEWS — Google widget ----------------------------------- */
-  .g-reviews{ display:grid; grid-template-columns:300px 1fr;
-              gap:clamp(1.4rem,3vw,2.4rem); align-items:start; }
+  .g-reviews{ display:grid; grid-template-columns:248px 1fr;
+              gap:clamp(1.2rem,2.6vw,2rem); align-items:start; }
 
   .g-summary{
     background:var(--surface); border:1px solid var(--line);
-    border-radius:var(--radius-lg); padding:1.9rem 1.6rem; text-align:center;
-    position:sticky; top:96px;
+    border-radius:var(--radius-lg); padding:1.45rem 1.25rem; text-align:center;
+    position:sticky; top:100px;
   }
-  .g-logo svg{ width:78px; height:auto; display:inline-block; }
-  .g-score{ font-family:var(--display); font-weight:600; font-size:3.4rem;
-            line-height:1; margin:.7rem 0 .25rem; color:var(--text); }
-  .g-stars{ color:var(--accent); letter-spacing:.1em; font-size:1.32rem; }
-  .g-count{ margin:.75rem 0 1.5rem; font-size:.92rem; color:var(--text-mute); }
+  .g-logo svg{ width:56px; height:auto; display:inline-block; }
+  .g-score{ font-family:var(--display); font-weight:600; font-size:2.5rem;
+            line-height:1; margin:.45rem 0 .2rem; color:var(--text); }
+  .g-stars{ color:var(--accent); letter-spacing:.08em; font-size:1.08rem; }
+  .g-count{ margin:.5rem 0 1rem; font-size:.82rem; color:var(--text-mute); }
   .g-count b{ color:var(--text); font-weight:600; }
-  .g-summary .btn{ width:100%; }
-  .g-write{ display:inline-block; margin-top:.95rem; font-size:.86rem;
+  .g-summary .btn{ width:100%; min-height:46px; padding:.7em 1.2em; }
+  .g-write{ display:inline-block; margin-top:.65rem; font-size:.8rem;
             font-weight:600; color:var(--primary); }
   .g-write:hover{ text-decoration:underline; }
 
   .g-cards{ display:grid; grid-template-columns:repeat(2,1fr);
-            gap:clamp(1rem,2vw,1.3rem); }
+            gap:clamp(.85rem,1.8vw,1.1rem); }
   .g-card{
     background:var(--surface); border:1px solid var(--line);
-    border-radius:var(--radius); padding:1.4rem 1.4rem 1.5rem;
-    display:flex; flex-direction:column; gap:.9rem;
+    border-radius:var(--radius); padding:1.05rem 1.1rem 1.15rem;
+    display:flex; flex-direction:column; gap:.65rem;
     transition:transform .35s var(--ease), box-shadow .35s var(--ease),
                border-color .35s var(--ease);
   }
   .g-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-sm);
                  border-color:rgba(168,78,44,.35); }
-  .g-card header{ display:flex; align-items:center; gap:.75rem; }
-  .g-avatar{ width:42px; height:42px; flex:none; border-radius:50%;
+  .g-card header{ display:flex; align-items:center; gap:.55rem; }
+  .g-avatar{ width:34px; height:34px; flex:none; border-radius:50%;
              display:flex; align-items:center; justify-content:center;
-             font-family:var(--display); font-weight:600; font-size:1.15rem;
+             font-family:var(--display); font-weight:600; font-size:.95rem;
              color:var(--on-dark); background:var(--primary); }
   .g-card:nth-child(4n+2) .g-avatar{ background:var(--text); }
   .g-card:nth-child(4n+3) .g-avatar{ background:#7a5a44; }
   .g-id{ flex:1; min-width:0; }
-  .g-name{ display:block; font-weight:600; font-size:.97rem; color:var(--text);
+  .g-name{ display:block; font-weight:600; font-size:.88rem; color:var(--text);
            line-height:1.2; }
-  .g-meta{ font-size:.78rem; color:var(--text-mute); }
-  .g-gmark{ width:20px; height:20px; flex:none; }
-  .g-cstars{ color:var(--accent); letter-spacing:.08em; font-size:1rem; }
+  .g-meta{ font-size:.73rem; color:var(--text-mute); }
+  .g-gmark{ width:17px; height:17px; flex:none; }
+  .g-cstars{ color:var(--accent); letter-spacing:.06em; font-size:.9rem; }
   .g-card blockquote{ margin:0; }
-  .g-card p{ font-size:.96rem; color:var(--text); line-height:1.55; }
+  .g-card p{ font-size:.89rem; color:var(--text); line-height:1.5; }
 
   /* review source toggle (Google / Yelp) */
-  .rev-tabs{ display:inline-flex; gap:.35rem; padding:.35rem; margin-bottom:1.8rem;
+  .rev-tabs{ display:inline-flex; gap:.35rem; padding:.3rem; margin-bottom:1.4rem;
              background:var(--surface); border:1px solid var(--line); border-radius:999px; }
   .rev-tab{ display:inline-flex; align-items:center; gap:.5em; min-height:44px;
             padding:.5em 1.2em; border:0; background:transparent; cursor:pointer;
@@ -652,7 +652,7 @@
   .rev-panel[hidden]{ display:none; }
 
   /* Yelp panel — reuses .g-* layout with red brand accents */
-  .yelp-word{ font-family:var(--display); font-weight:800; font-size:1.9rem;
+  .yelp-word{ font-family:var(--display); font-weight:800; font-size:1.5rem;
               letter-spacing:-.02em; color:var(--yelp); display:inline-block; }
   .y .g-stars, .y .g-cstars{ color:var(--yelp); }
   .y .g-write{ color:var(--yelp); }
@@ -665,7 +665,7 @@
 
   /* scrollable review row */
   .g-rowwrap{ position:relative; min-width:0; }
-  .g-row{ display:grid; grid-auto-flow:column; grid-auto-columns:minmax(270px,290px);
+  .g-row{ display:grid; grid-auto-flow:column; grid-auto-columns:minmax(230px,250px);
           gap:clamp(1rem,2vw,1.3rem); overflow-x:auto; overscroll-behavior-x:contain;
           scroll-snap-type:x mandatory; scroll-padding:4px;
           padding:4px 4px 1.1rem; margin:-4px;
@@ -676,7 +676,7 @@
   .g-row::-webkit-scrollbar-thumb:hover{ background:rgba(39,24,16,.28); }
   .g-row > .g-card{ scroll-snap-align:start; }
   .g-rownav{ display:flex; gap:.5rem; justify-content:flex-end; margin-top:.5rem; }
-  .g-arrow{ width:44px; height:44px; border-radius:50%; cursor:pointer; flex:none;
+  .g-arrow{ width:40px; height:40px; border-radius:50%; cursor:pointer; flex:none;
             border:1px solid var(--line); background:var(--surface); color:var(--text);
             display:inline-flex; align-items:center; justify-content:center;
             font-size:1.3rem; line-height:1;
