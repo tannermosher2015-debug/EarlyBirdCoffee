@@ -8,3 +8,6 @@ desktop.ini
 
 # Netlify local
 .netlify/
+
+# Internal agent notes — keep local, don't publish (repo root is the Netlify publish dir)
+CLAUDE.md
