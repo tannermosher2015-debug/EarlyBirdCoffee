@@ -10,7 +10,7 @@
 
 <!-- SEO -->
 <link rel="canonical" href="https://earlybirdcoffeesample.netlify.app/" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="robots" content="noindex, nofollow" />
 <meta name="author" content="Early Bird Coffee" />
 <meta name="keywords" content="Early Bird Coffee, Kihei coffee, Maui coffee truck, Vietnamese coffee Maui, ube coffee, matcha Kihei, cold foam coffee, croffle Maui, South Kihei Road coffee, coffee near me Kihei" />
 
@@ -79,7 +79,6 @@
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "06:00", "closes": "12:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday"], "opens": "08:00", "closes": "15:00" }
   ],
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "128", "bestRating": "5" },
   "sameAs": [
     "https://www.instagram.com/earlybirdcoffee.maui/",
     "https://www.tiktok.com/@earlybirdcoffee.maui",
@@ -1409,7 +1408,7 @@
 
   /* ---- highlight today's hours row ---- */
   (function(){
-    const today = new Date().getDay(); // 0=Sun
+    const today = new Date(new Date().toLocaleString('en-US', {timeZone:'Pacific/Honolulu'})).getDay(); // 0=Sun, Hawaii time (no DST)
     const cell = document.querySelector('.hours .time[data-day="'+today+'"]');
     if (cell){
       const row = cell.closest('.row');
