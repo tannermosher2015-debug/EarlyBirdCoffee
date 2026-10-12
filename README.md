@@ -4,7 +4,7 @@ Single-page marketing site for Early Bird Coffee, a locally owned coffee truck o
 South Kihei Road serving premium Vietnamese coffee, ceremonial matcha, island
 cold foams, croffles, and paninis.
 
-**Live:** https://earlybirdcoffeesample.netlify.app/
+**Live:** https://earlybird.mauifoodtruckwebsites.com/
 
 ## Stack
 - One file, no frameworks: `index.html` (inline CSS + vanilla JS)
